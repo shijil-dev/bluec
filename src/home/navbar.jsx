@@ -1,21 +1,50 @@
-import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
-import { Avatar, Button, Heading, Input, InputGroup, Menu, MenuButton, Stack, Wrap } from "@chakra-ui/react";
+import {  SearchIcon } from "@chakra-ui/icons";
+import { Center, Flex, IconButton, Input, InputGroup, InputRightElement,  Spacer, Stack,} from "@chakra-ui/react";
 import { Pdrawer } from "./components/drawer";
+import { Locate } from "./components/locate";
 
 export const Bar = () => (
-    <Stack direction='row' spacing='1' bg='blue.700' h='20' align='center'>
-    <Heading color='white' p='2'>BlueCollar</Heading>
-        <InputGroup w='100%'>
-         <Input id='search' variant='solid'  w='60%' placeholder="Search..." type="text" name='tag'/>
-       <Button variant='outline' bg='white' id='click'> 
-       <SearchIcon/>
-       </Button>
-       </InputGroup>
-       <Menu>
-       <MenuButton w='40' as={Button} rightIcon={<ChevronDownIcon />}>
-        Location
-        </MenuButton>
-       </Menu>
-        <Pdrawer/>
+    
+    <Flex direction='row'
+            bg='blue.700'
+            h='-moz-max-content'
+            minHeight='3em'
+            align='center' 
+            justifyContent='center'
+            >
+        <Center 
+            paddingLeft='.5em'
+            color='white'
+            fontFamily='monospace'
+            fontSize='3xl' 
+            fontWeight='bold'>
+          BlueCollar
+        </Center>
+        <Stack direction={["column","row"]}>
+            <Flex>
+                <InputGroup paddingLeft='10'>
+            
+                <Input id='search'
+                    variant='solid' 
+                    minWidth='10em'
+                    size='sm'
+                    placeholder="Search..." 
+                    type="search"
+                    name='tag' />
+                    <InputRightElement paddingBottom='2'>
+                    <IconButton size='xs' id='click' icon={<SearchIcon/> }/> 
+                    </InputRightElement>
+      
+                </InputGroup>
+            </Flex>
+        <Spacer/>
+         <Center paddingLeft='5em'>
+         <Locate/>
+        </Center>
         </Stack>
+        <Spacer/>
+   
+            <Pdrawer/>
+
+    </Flex>
 ) 
