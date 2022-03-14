@@ -1,12 +1,59 @@
-import { Box, Img } from "@chakra-ui/react";
-export const Results = () => (
+import { SimpleGrid} from "@chakra-ui/react";
+import { Searchitems } from "./searchitems";
+export const Results = () =>{ 
+    const testprofiles = [
+        {
+            name : "Ram",
+            place : "Calicut",
+            tag: "Painter",
+            sts:"Active",
+            rate:'4.5'
 
-    <Box>
+        },
+        {
+            name : "Kiran",
+            place : "Tanur",
+            tag: "Plumber",
+            sts:"Busy",
+            rate:"5"
 
-        <Box>
-            <Img/>
-        </Box>
+        },
+        {
+            name : "Babu",
+            place : "Vallikkunnu",
+            tag: "Singer",
+            sts:"active",
+            rate:"3"
 
-    </Box>
+        },
+        {
+            name : "Ramanujan",
+            place : "Calicut",
+            tag: "Painter",
+            sts:"Active",
+            rate:'4.5'
 
-)
+        },
+        {
+            name : "Kiran",
+            place : "Tanur",
+            tag: "Plumber",
+            sts:"Busy",
+            rate:"5"
+
+        },
+        {
+            name : "Babu",
+            place : "Vallikkunnu",
+            tag: "Singer",
+            sts:"active",
+            rate:"3"
+
+        },
+    ];
+    return (
+        <SimpleGrid>
+           <Searchitems testprofiles={ testprofiles } />
+           </SimpleGrid>
+);
+}

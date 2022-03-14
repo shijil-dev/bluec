@@ -7,8 +7,7 @@ export const Bar = () => (
     
     <Flex direction='row'
             bg='blue.700'
-            h='-moz-max-content'
-            minHeight='3em'
+            h={['6em','3em']}
             align='center' 
             justifyContent='center'
             >
@@ -26,7 +25,7 @@ export const Bar = () => (
             
                 <Input id='search'
                     variant='solid' 
-                    minWidth='10em'
+                   width={['10em','20em','30em','40em']}
                     size='sm'
                     placeholder="Search..." 
                     type="search"

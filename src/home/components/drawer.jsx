@@ -1,4 +1,5 @@
-import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay, Flex, IconButton, useDisclosure } from "@chakra-ui/react";
+import { InfoIcon, SettingsIcon } from "@chakra-ui/icons";
+import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay, Flex, HStack, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 
 export const Pdrawer = () => {
@@ -17,12 +18,20 @@ export const Pdrawer = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerBody>
-              <Flex>
-              <h1>john doe</h1>
-
-              </Flex>
-              <Flex fle>
-                  <Button>Logout</Button>
+              <Flex direction='column'>
+              <Stack direction='row' alignItems='center'>
+                  <Avatar />
+                  <h1>john doe</h1>
+                  </Stack>
+                  <Stack padding={'1em'}>
+                      <Button columnGap={'0.5em'}><SettingsIcon/>Settings</Button>
+                  </Stack>
+                  <Stack padding={'1em'}>
+                      <Button columnGap={'0.5em'}><InfoIcon/>About</Button>
+                  </Stack>
+                  <Stack padding='1em'>
+                <Button colorScheme={'blue'}>Logout</Button>
+                </Stack>
               </Flex>
 
 
