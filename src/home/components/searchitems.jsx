@@ -12,22 +12,25 @@ export const Searchitems = (props) =>{
          borderColor='gray.200' 
          borderRadius='md'
          padding={'.5em'}
-         bgColor='green.200'
+         bgColor='blue.200'
          boxSize={'-webkit-fit-content'}
+       
          >
              
-             <Stack>
-                <Stack direction='row' padding={'1em'}  alignItems='center' >
+             <Stack >
+                <Stack direction='row'  alignItems='center'   justifyContent={'space-between'}>
+                    <Stack direction={'row'}>
                     <Avatar/>
+                 
                     <Text color={'blue.800'} fontSize='3xl' fontWeight={'bold'}>{testprofiles.name}</Text>
-                    <h1>{testprofiles.tag}</h1>
-                    <Stack direction={'row'} alignItems="center">
-                    <Image src='loc.png'/>
-                     <h1>{testprofiles.place}</h1>
                     </Stack>
-                        
+                    <Stack direction={'row'} alignItems="center" >
+                    <h1>{testprofiles.tag}</h1>
+                     <h1>{testprofiles.place}</h1>
+                
+                    </Stack>
                 </Stack>
-                <Stack direction={"row"} alignItems="center" >
+                <Stack direction={"row"} alignItems='center'  justifyContent={'space-between'} >
                 <Badge>{testprofiles.sts}</Badge>
                 <Stack direction='row' spacing='10px'> <text>{testprofiles.rate}</text>
                 <StarIcon /></Stack>

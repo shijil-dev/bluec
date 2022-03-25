@@ -1,6 +1,7 @@
-import { Box, Button, Checkbox, Flex, FormControl, FormLabel, Input, Link, Stack } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Flex, FormControl, FormLabel, Input, Link, Select, Stack } from "@chakra-ui/react";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { Header } from "./header";
 export const Login = () =>{
   const [login,setLogin] = useState({username:'',password:''});
 const setLoginDetails = ()=>{
@@ -10,16 +11,24 @@ function handleClick(){
 navigate("/register");
 }
 return (
+  <>
+  <Header />
     <div>
 <Flex justifyContent={'center'}>
 <Box my={8} textAlign='left'>
       <form >
 
-        <FormControl >
+      <FormControl >
+          <Select bg={'tomato'} color='white' variant={'outline'}>
+            <option value="Worker">Worker</option>
+            <option value="Employer">Employer</option>
+          </Select>
+        </FormControl>
+
+        <FormControl mt={4}>
           <FormLabel>Email address</FormLabel>
           <Input variant={'flushed'} type='email' name='email'
           placeholder='Enter your email address' 
-        
           />
         </FormControl>
 
@@ -43,5 +52,6 @@ return (
     </Box>
     </Flex>
 </div>
+</>
 )
 }

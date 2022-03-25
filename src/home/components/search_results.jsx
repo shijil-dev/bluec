@@ -50,6 +50,15 @@ export const Results = () =>{
             rate:"3"
 
         },
+        {
+            name : "Najeed",
+            place : "Parapangadi",
+            tag: "Bandari",
+            sts:"active",
+            rate:"3"
+
+        },
+
     ];
     return (
         <SimpleGrid>

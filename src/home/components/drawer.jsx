@@ -1,5 +1,6 @@
-import { InfoIcon, SettingsIcon } from "@chakra-ui/icons";
-import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay, Flex, HStack, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
+import { BellIcon, InfoIcon, SettingsIcon } from "@chakra-ui/icons";
+import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton, 
+    DrawerContent, DrawerOverlay, Flex, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 
 export const Pdrawer = () => {
@@ -22,6 +23,9 @@ export const Pdrawer = () => {
               <Stack direction='row' alignItems='center'>
                   <Avatar />
                   <h1>john doe</h1>
+                  </Stack>
+                  <Stack padding={'1em'}>
+                      <Button columnGap={'0.5em'}><BellIcon/>Notifications</Button>
                   </Stack>
                   <Stack padding={'1em'}>
                       <Button columnGap={'0.5em'}><SettingsIcon/>Settings</Button>

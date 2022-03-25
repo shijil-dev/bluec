@@ -16,7 +16,9 @@ export const Locate = () =>
                 select location
                 </PopoverHeader>
                 <PopoverHeader>
-                <Input type='text' placeholder="Enter your location"/>
+                    <form >
+                <Input id="location" type='text' placeholder="Enter your location"/>
+                </form>
                 </PopoverHeader>
             <PopoverBody>
             
