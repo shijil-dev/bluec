@@ -1,7 +1,7 @@
 import {  SearchIcon } from "@chakra-ui/icons";
 import { Center, Flex, IconButton, Input, InputGroup, InputRightElement,  Spacer, Stack,} from "@chakra-ui/react";
-import { Pdrawer } from "./components/drawer";
-import { Locate } from "./components/locate";
+import { Pdrawer } from "./drawer";
+import { Locate } from "./locate";
 
 export const Bar = () => (
     

@@ -1,8 +1,8 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Avatar,Stack ,Image,SimpleGrid, Badge, Heading} from "@chakra-ui/react";
-import  '../resources/loc.png';
+import { Avatar,Stack ,SimpleGrid, Badge, Heading} from "@chakra-ui/react";
 
-export const Searchitems = (props) =>{
+
+export const SearchResults = (props) =>{
     console.log(props);
     const Rsearch = props.testprofiles.map((testprofiles) => {
        return (
@@ -27,8 +27,8 @@ export const Searchitems = (props) =>{
                     </Heading>
                     </Stack>
                     <Stack direction={'row'} alignItems="center" >
-                    <h1 key='tag'>{testprofiles.tag}</h1>
-                     <h1 key="location">{testprofiles.place}</h1>
+                    <h1>{testprofiles.tag}</h1>
+                     <h1>{testprofiles.place}</h1>
                 
                     </Stack>
                 </Stack>

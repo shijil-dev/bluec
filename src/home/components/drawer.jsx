@@ -4,11 +4,16 @@ import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton,
 import React,{useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../App";
-let navigate=useNavigate;
+
 export const Pdrawer = () => {
     const { isOpen , onClose , onOpen} = useDisclosure()
     const btnRef = React.useRef();
-
+    let navigate=useNavigate();
+    const {authData,updateData} = useContext(authContext);
+    function handleClick(){
+        updateData({...authData, ...{ isLoggedIn:false }});
+        navigate("/login");
+    }
 
 
 
@@ -39,7 +44,7 @@ export const Pdrawer = () => {
                       <Button columnGap={'0.5em'}><InfoIcon/>About</Button>
                   </Stack>
                   <Stack padding='1em'>
-                <Button colorScheme={'blue'} >Logout</Button>
+                <Button colorScheme={'blue'} onClick={handleClick}>Logout</Button>
                 </Stack>
               </Flex>
 

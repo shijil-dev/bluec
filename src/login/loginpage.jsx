@@ -5,8 +5,9 @@ import { authContext } from "../App";
 import { Header } from "./header";
 
 export const Login = () =>{
-
+  
   const {authData,updateData} = useContext(authContext);
+  console.log(authData.isWorker)
   const testuser={
     username:"test@test.com",
     password:"password"
@@ -21,7 +22,9 @@ navigate("/register");
 }
 
 function handleSubmit(){
-  if(login.username === testuser.username && login.password === testuser.password){
+  console.log(authData.isWorker);
+  
+  if(login.username === testuser.username && login.password === testuser.password ){
     console.log("testlogin success")
     updateData({...authData, ...{ isLoggedIn:true }});
   navigate("/home");
@@ -30,6 +33,7 @@ function handleSubmit(){
     updateData({...authData, ...{ isLoggedIn:false }});
     console.log("error");
   }
+
 }
 
 return (
@@ -46,10 +50,10 @@ return (
            color='white' 
            variant={'outline'}
            placeholder="Select Your Role" >
-            <option value="Worker" onClick={e =>updateData({...authData,...{isWorker:"true"}})}>
+            <option value="Worker" onClick={e =>updateData({...authData,isWorker:"true"})}>
               Worker
               </option>
-            <option value="Employer" onClick={e =>updateData({...authData,...{isWorker:"false"}})}>
+            <option value="Employer" onClick={e =>updateData({...authData,isWorker:"false"})}>
               Employer
               </option>
           </Select>
