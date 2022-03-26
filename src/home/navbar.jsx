@@ -9,7 +9,7 @@ export const Bar = () => (
             bg='blue.700'
             h={['6em','3em']}
             align='center' 
-            justifyContent='center'
+            justifyContent='space-between'
             >
         <Center 
             paddingLeft='.5em'
@@ -23,13 +23,12 @@ export const Bar = () => (
             <Flex>
                 <InputGroup paddingLeft='10'>
             
-                <Input id='search'
+                <Input
                     variant='solid' 
                    width={['10em','20em','30em','40em']}
                     size='sm'
                     placeholder="Search..." 
-                    type="search"
-                    name='tag' />
+                    type="search" />
                     <InputRightElement paddingBottom='2'>
                     <IconButton size='xs' id='click' icon={<SearchIcon/> }/> 
                     </InputRightElement>

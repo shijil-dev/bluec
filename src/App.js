@@ -9,17 +9,17 @@ import React from 'react';
 import { Login } from './login/loginpage';
 const initialAuthData={
   isLoggedIn:false,
-  isWorker:false,
-  isEmployer:false
+  isWorker:false
 }
-function App() {
-  const [authData, updateData] = React.useState(initialAuthData) ;
-  const authContext =React.createContext() ;
 
+  export const authContext =React.createContext() ;
+function App() {
+  
+  const [authData, updateData] = React.useState(initialAuthData) ;
   return (
     
     <ChakraProvider>
-      
+     <authContext.Provider value={{authData,updateData}}>
    <Router>
      <Routes>
      <Route exact path={'/'} element={<Begin />}/>
@@ -28,6 +28,7 @@ function App() {
        <Route exact path={'/home'} element={<Home/>}/>
      </Routes>
    </Router>
+   </authContext.Provider> 
     </ChakraProvider>
    
   );

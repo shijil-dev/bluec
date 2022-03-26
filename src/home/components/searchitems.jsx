@@ -1,5 +1,5 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Avatar,Stack ,Image,SimpleGrid, Badge, Text} from "@chakra-ui/react";
+import { Avatar,Stack ,Image,SimpleGrid, Badge, Heading} from "@chakra-ui/react";
 import  '../resources/loc.png';
 
 export const Searchitems = (props) =>{
@@ -22,17 +22,19 @@ export const Searchitems = (props) =>{
                     <Stack direction={'row'}>
                     <Avatar/>
                  
-                    <Text color={'blue.800'} fontSize='3xl' fontWeight={'bold'}>{testprofiles.name}</Text>
+                    <Heading key="name" color={'blue.800'} fontSize='3xl' fontWeight={'bold'}>
+                        {testprofiles.name}
+                    </Heading>
                     </Stack>
                     <Stack direction={'row'} alignItems="center" >
-                    <h1>{testprofiles.tag}</h1>
-                     <h1>{testprofiles.place}</h1>
+                    <h1 key='tag'>{testprofiles.tag}</h1>
+                     <h1 key="location">{testprofiles.place}</h1>
                 
                     </Stack>
                 </Stack>
                 <Stack direction={"row"} alignItems='center'  justifyContent={'space-between'} >
-                <Badge>{testprofiles.sts}</Badge>
-                <Stack direction='row' spacing='10px'> <text>{testprofiles.rate}</text>
+                <Badge key="status">{testprofiles.sts}</Badge>
+                <Stack direction='row' spacing='10px'> <h1 key="rating">{testprofiles.rate}</h1>
                 <StarIcon /></Stack>
                 </Stack>
                 </Stack>

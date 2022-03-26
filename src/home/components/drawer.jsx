@@ -1,11 +1,16 @@
 import { BellIcon, InfoIcon, SettingsIcon } from "@chakra-ui/icons";
 import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton, 
     DrawerContent, DrawerOverlay, Flex, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
-import React from "react";
-
+import React,{useContext} from "react";
+import { useNavigate } from "react-router-dom";
+import { authContext } from "../../App";
+let navigate=useNavigate;
 export const Pdrawer = () => {
     const { isOpen , onClose , onOpen} = useDisclosure()
-    const btnRef = React.useRef()
+    const btnRef = React.useRef();
+
+
+
 
    return (
     <Flex paddingLeft='2em' paddingRight='2em'>
@@ -34,7 +39,7 @@ export const Pdrawer = () => {
                       <Button columnGap={'0.5em'}><InfoIcon/>About</Button>
                   </Stack>
                   <Stack padding='1em'>
-                <Button colorScheme={'blue'}>Logout</Button>
+                <Button colorScheme={'blue'} >Logout</Button>
                 </Stack>
               </Flex>
 

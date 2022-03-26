@@ -1,18 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect,useContext} from "react";
+import { authContext } from "../App";
 
-export const Begin = (props) =>{
-    
+export const Begin = () =>{
+ 
+    const {authData} = useContext(authContext);
     let navigate=useNavigate();
     useEffect(() => {
-        if(props.isLoggedIn)
+        if(authData.isLoggedIn && !authData.isWorker)
         navigate("/home");
         else
-        navigate("/start");
+        navigate("/login");
     
       return null
       
-    }, [props,navigate])
+    }, [authData,navigate])
     
     return(
         <div style={{backgroundImage:"url(/blu.jpg)" , 
