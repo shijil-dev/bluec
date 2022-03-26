@@ -24,10 +24,13 @@ navigate("/register");
 function handleSubmit(){
   console.log(authData.isWorker);
   
-  if(login.username === testuser.username && login.password === testuser.password ){
+  if((login.username === testuser.username) && (login.password === testuser.password)  && !authData.isWorker){
+    
+
     console.log("testlogin success")
     updateData({...authData, ...{ isLoggedIn:true }});
   navigate("/home");
+    
   }
   else{
     updateData({...authData, ...{ isLoggedIn:false }});
