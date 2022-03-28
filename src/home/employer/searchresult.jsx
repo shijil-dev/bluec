@@ -10,6 +10,7 @@ export const SearchResults = (props) =>{
        return (
        
         <Box
+        as='button'
          border='2px' 
          borderColor='gray.200' 
          borderRadius='md'

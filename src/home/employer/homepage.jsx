@@ -1,7 +1,7 @@
 
 
 import { Bar } from '../components/navbar';
-import { SimpleGrid } from '@chakra-ui/react';
+import { Button, SimpleGrid } from '@chakra-ui/react';
 import { SearchResults } from './searchresult';
 function Home() {
   const testprofiles = [
@@ -28,6 +28,15 @@ function Home() {
   return (
    <>
    <Bar/>
+   <Button
+  size='md'
+  height='48px'
+  width='200px'
+  border='2px'
+  borderColor='green.500'
+>
+Post A Work
+</Button>
    <SimpleGrid>
            <SearchResults testprofiles={ testprofiles } />
            </SimpleGrid>
