@@ -1,4 +1,4 @@
-import { Box, Button, Flex, FormControl, Heading, Input, Select, } from "@chakra-ui/react";
+import { Box, Button, Flex, FormControl, FormLabel, Heading, Input, Select, } from "@chakra-ui/react";
 import { Header } from "./header";
 import { useState ,useContext} from "react";
 import { authContext } from "../App";
@@ -26,11 +26,15 @@ export const Register = () =>{
     <Heading>Create Your Account</Heading>
           <form >
           <FormControl mt={4} >
-          <Select bg={'teal'} color='white' variant={'outline'} placeholder="Select your Role">
-          <option value="Worker" onClick={e =>updateData({...authData,...{isWorker:"true"}})}>
+            <FormLabel>Select Your Role</FormLabel>
+          <Select bg={'teal'} 
+          color='white' 
+          variant={'outline'} 
+          >
+          <option value="Worker" onClick={e =>updateData({...authData,...{isWorker:true}})}>
               Worker
               </option>
-            <option value="Employer" onClick={e =>updateData({...authData,...{isWorker:"false"}})}>
+            <option value="Employer" onClick={e =>updateData({...authData,...{isWorker:false}})}>
               Employer
               </option>
           </Select>
@@ -38,25 +42,35 @@ export const Register = () =>{
 
           <FormControl mt={4} isRequired>
         
-              <Input variant={'flushed'} type='text' placeholder="Enter Your Name" />
+              <Input variant={'flushed'} type='text' placeholder="Enter Your Name"
+               onChange={e => setUser({...noUser,name:e.target.value})}
+               value={noUser.name} />
             </FormControl>
             <FormControl mt={4} isRequired>
             
-            <Input variant={'flushed'} type='number' placeholder="Phone" />
+            <Input variant={'flushed'} type='number' placeholder="Phone" 
+            onChange={e => setUser({...noUser,phone:e.target.value})}
+            value={noUser.phone}/>
             </FormControl>
     
     
             <FormControl mt={4} isRequired>
              
               <Input variant={'flushed'} type='email' name='email'
-              placeholder='Enter your email address' />
+              placeholder='Enter your email address'
+              onChange={e => setUser({...noUser,email:e.target.value})}
+               value={noUser.email} />
             </FormControl>
     
             <FormControl mt={4} isRequired>
-              <Input variant={'flushed'} type='password' placeholder='password' />
+              <Input variant={'flushed'} type='password' placeholder='password'
+              onChange={e => setUser({...noUser,password:e.target.value})}
+              value={noUser.password} />
             </FormControl>
             <FormControl mt={4} isRequired>
-              <Input variant={'flushed'} type='password' placeholder='confirm-password' />
+              <Input variant={'flushed'} type='password' placeholder='confirm-password' 
+              nChange={e => setUser({...noUser,confirmpassword:e.target.value})}
+              value={noUser.confirmpassword}/>
             </FormControl>
          
           </form>

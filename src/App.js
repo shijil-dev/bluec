@@ -1,13 +1,7 @@
 
 import { ChakraProvider } from '@chakra-ui/react';
-import './App.css';
-import Home from './home/employer/homepage';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import { Begin } from './login/begin';
-import { Register } from './login/register';
 import React from 'react';
-import { Login } from './login/loginpage';
-import WorkerHome from './home/worker/workerhome';
+import Main from './home/router';
 const initialAuthData={
   isLoggedIn:false,
   isWorker:false
@@ -21,15 +15,9 @@ function App() {
     
     <ChakraProvider>
      <authContext.Provider value={{authData,updateData}}>
-   <Router>
-     <Routes>
-     <Route exact path={'/'} element={<Begin />}/>
-     <Route exact path={'/login'} element={<Login/>}/>
-       <Route exact path={'/register'} element={<Register/>}/>
-       <Route exact path={'/home'} element={<Home/>}/>
-       <Route exact path={'/workerhome'} element={<WorkerHome/>}/>
-     </Routes>
-   </Router>
+   <>
+   <Main/>
+   </>
    </authContext.Provider> 
     </ChakraProvider>
    

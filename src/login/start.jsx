@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import {useEffect,useContext} from "react";
 import { authContext } from "../App";
 
-export const Begin = () =>{
+export const Start = () =>{
  
     const {authData} = useContext(authContext);
     let navigate=useNavigate();

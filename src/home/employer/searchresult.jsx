@@ -1,20 +1,22 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Avatar,Stack ,SimpleGrid, Badge, Heading} from "@chakra-ui/react";
+import { Avatar,Stack ,SimpleGrid, Badge, Heading, Box} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 
 export const SearchResults = (props) =>{
     console.log(props);
+    let navigate=useNavigate();
     const Rsearch = props.testprofiles.map((testprofiles) => {
        return (
        
-        <SimpleGrid 
+        <Box
          border='2px' 
          borderColor='gray.200' 
          borderRadius='md'
          padding={'.5em'}
          bgColor='blue.200'
          boxSize={'-webkit-fit-content'}
-       
+         onClick={() => navigate("/home/workerprofile")}
          >
              
              <Stack >
@@ -39,7 +41,7 @@ export const SearchResults = (props) =>{
                 </Stack>
                 </Stack>
                
-        </SimpleGrid>
+        </Box>
         );
     });
    return(

@@ -17,20 +17,16 @@ export const Login = () =>{
 
 let navigate=useNavigate();
 
-function handleSignUp(){
-navigate("/register");
-}
-
 function handleSubmit(){
   console.log(authData.isWorker);
   
-  if((login.username === testuser.username) && (login.password === testuser.password)  && !authData.isWorker){
+  if((login.username === testuser.username) && (login.password === testuser.password)){
     
 
     console.log("testlogin success")
     updateData({...authData, ...{ isLoggedIn:true }});
-  navigate("/home");
-    
+    (!authData.isWorker)?  navigate("/home"):navigate("/workerhome");
+
   }
   else{
     updateData({...authData, ...{ isLoggedIn:false }});
@@ -49,16 +45,17 @@ return (
       <form onSubmit={handleSubmit}>
 
       <FormControl mt={4} >
+      <FormLabel>Select Your Role</FormLabel>
           <Select bg={'tomato'}
            color='white' 
-           variant={'outline'}
-           placeholder="Select Your Role" >
+           variant={'outline'}>
+             <option value="Employer" onClick={e =>updateData({...authData,isWorker:"false"})}>
+              Employer
+              </option>
             <option value="Worker" onClick={e =>updateData({...authData,isWorker:"true"})}>
               Worker
               </option>
-            <option value="Employer" onClick={e =>updateData({...authData,isWorker:"false"})}>
-              Employer
-              </option>
+            
           </Select>
         </FormControl>
 
@@ -94,7 +91,7 @@ return (
       </form>
       <Stack mt={4}>
       <Center>Don't have an Account?</Center>
-      <Button colorScheme={'red'}  width='full' mt={4} onClick={handleSignUp}>Sign Up</Button>
+      <Button colorScheme={'red'}  width='full' mt={4} onClick={() => navigate("/register")}>Sign Up</Button>
       </Stack>
     </Box>
     </Flex>
