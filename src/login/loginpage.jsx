@@ -14,18 +14,19 @@ export const Login = () =>{
 
   }
   const [login,setLogin] = useState({username:'',password:''});
-
+  console.log(login.username)
 let navigate=useNavigate();
 
 function handleSubmit(){
   console.log(authData.isWorker);
+
   
   if((login.username === testuser.username) && (login.password === testuser.password)){
     
 
     console.log("testlogin success")
     updateData({...authData, ...{ isLoggedIn:true }});
-    (!authData.isWorker)?  navigate("/home"):navigate("/workerhome");
+    navigate("/mainhome")
 
   }
   else{
@@ -49,10 +50,10 @@ return (
           <Select bg={'tomato'}
            color='white' 
            variant={'outline'}>
-             <option value="Employer" onClick={e =>updateData({...authData,isWorker:"false"})}>
+             <option value="Employer" onClick={e =>updateData({...authData,isWorker:false})}>
               Employer
               </option>
-            <option value="Worker" onClick={e =>updateData({...authData,isWorker:"true"})}>
+            <option value="Worker" onClick={e =>updateData({...authData,isWorker:true})}>
               Worker
               </option>
             

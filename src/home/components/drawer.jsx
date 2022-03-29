@@ -35,21 +35,19 @@ export const Pdrawer = () => {
                   <h1>john doe</h1>
                   </Stack>
                   <Stack padding={'1em'}>
+                      <Button columnGap={'0.5em'} onClick={() => navigate("/profile")}><InfoIcon/>Your Account</Button>
+                  </Stack>
+                  <Stack padding={'1em'}>
                       <Button columnGap={'0.5em'}><BellIcon/>Notifications</Button>
                   </Stack>
                   <Stack padding={'1em'}>
                       <Button columnGap={'0.5em'}><SettingsIcon/>Settings</Button>
                   </Stack>
-                  <Stack padding={'1em'}>
-                      <Button columnGap={'0.5em'}><InfoIcon/>About</Button>
-                  </Stack>
+                  
                   <Stack padding='1em'>
                 <Button colorScheme={'blue'} onClick={handleClick}>Logout</Button>
                 </Stack>
               </Flex>
-
-
-
 
           </DrawerBody>
           </DrawerContent>

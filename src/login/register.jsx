@@ -6,19 +6,27 @@ import { authContext } from "../App";
 
 export const Register = () =>{
   const {authData,updateData} = useContext(authContext);
-  const noUser={
+  const initialUser={
+    name:'',
     email:'',
     password:'',
     confirmpassword:'',
-    phone:'',
-    role:''
+    phone:''
 
   }
-  const {user,setUser}=useState(noUser);
+  
+  const [user,setUser]=useState(initialUser);
+ const handleChange = (e) =>{
+  
+   const {name,value} = e.target;
+   setUser((prevUser) =>({...prevUser,[name]:value}))
+   console.log(user.email);
+ }
+
+
   return(
     <>
     <Header />
-  
         <div>
     <Flex justifyContent={'center'}>
         
@@ -41,36 +49,37 @@ export const Register = () =>{
         </FormControl>
 
           <FormControl mt={4} isRequired>
-        
               <Input variant={'flushed'} type='text' placeholder="Enter Your Name"
-               onChange={e => setUser({...noUser,name:e.target.value})}
-               value={noUser.name} />
+               onChange={handleChange}
+               value={user.name}
+               name="name" />
             </FormControl>
+
             <FormControl mt={4} isRequired>
-            
             <Input variant={'flushed'} type='number' placeholder="Phone" 
-            onChange={e => setUser({...noUser,phone:e.target.value})}
-            value={noUser.phone}/>
-            </FormControl>
-    
-    
-            <FormControl mt={4} isRequired>
-             
-              <Input variant={'flushed'} type='email' name='email'
-              placeholder='Enter your email address'
-              onChange={e => setUser({...noUser,email:e.target.value})}
-               value={noUser.email} />
+            onChange={handleChange}
+            value={user.phone}
+            name="phone"/>
             </FormControl>
     
             <FormControl mt={4} isRequired>
-              <Input variant={'flushed'} type='password' placeholder='password'
-              onChange={e => setUser({...noUser,password:e.target.value})}
-              value={noUser.password} />
+              <Input variant={'flushed'} type='email' name="email"
+              placeholder="Enter your email address"
+              onChange={handleChange}
+               value={user.email} />
+            </FormControl>
+    
+            <FormControl mt={4} isRequired>
+              <Input variant={'flushed'} type='password' placeholder="password"
+              onChange={handleChange}
+              value={user.password} 
+              name="password"/>
             </FormControl>
             <FormControl mt={4} isRequired>
-              <Input variant={'flushed'} type='password' placeholder='confirm-password' 
-              nChange={e => setUser({...noUser,confirmpassword:e.target.value})}
-              value={noUser.confirmpassword}/>
+              <Input variant={'flushed'} type='password' placeholder="confirm-password" 
+              onChange={handleChange}
+              value={user.confirmpassword}
+              name="comfirmpassword"/>
             </FormControl>
          
           </form>
@@ -79,8 +88,6 @@ export const Register = () =>{
         </Flex>
     </div>
     )
-    
-
     </>
   )
 }

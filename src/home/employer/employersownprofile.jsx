@@ -1,12 +1,12 @@
-import { EditIcon, InfoIcon, SettingsIcon } from "@chakra-ui/icons"
-import { Avatar, Box, Button, Flex, Heading, Stack } from "@chakra-ui/react"
+import { InfoIcon, SettingsIcon } from "@chakra-ui/icons"
+import { Box, Button, Flex, Image, Stack } from "@chakra-ui/react"
 import { Header } from "../../login/header"
 import { useNavigate} from "react-router-dom"
 import { authContext } from "../../App"
 import {useContext} from 'react';
 
 
-export const WorkerOwnProfile = () =>    {
+export const EmployersOwnProfile = () =>    {
     const navigate=useNavigate();
     const {authData,updateData} = useContext(authContext);
     return(
@@ -15,13 +15,8 @@ export const WorkerOwnProfile = () =>    {
         <Flex justifyContent={'space-around'} alignItems='center'>
         <Stack direction={'row'}>
             <Box bg={'red.100'}>
-                <Stack direction={'row'} padding='1em'>
-            <Avatar/>
-                <Heading>workername</Heading> 
-                </Stack>
-                <Stack padding={'1em'}>
-                      <Button columnGap={'0.5em'}><EditIcon/>Edit Profile</Button>
-                  </Stack>
+                <Image />
+                <h1>empname</h1>
                 <Stack padding={'1em'}>
                       <Button columnGap={'0.5em'}><SettingsIcon/>Settings</Button>
                   </Stack>
@@ -36,13 +31,14 @@ export const WorkerOwnProfile = () =>    {
                 </Stack>
             </Box>
             <Box bg={'blue.200'}>
-                <h1>worktag</h1>
-                <h1>experience</h1>
-                <h1> rating reviws</h1>
+               
+                <h1>location</h1>
+                <h1> phone number</h1>
+                <h1>workhistory</h1>
                 
             </Box>
         </Stack>
         </Flex>
         </>
     )
-    }
+            }

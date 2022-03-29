@@ -30,7 +30,7 @@ export const Bar = () => (
                     placeholder="Search..." 
                     type="search" />
                     <InputRightElement paddingBottom='2'>
-                    <IconButton size='xs' id='click' icon={<SearchIcon/> }/> 
+                    <IconButton size='xs' icon={<SearchIcon/> }/> 
                     </InputRightElement>
       
                 </InputGroup>
