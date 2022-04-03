@@ -3,21 +3,22 @@ import {useState,useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../App";
 import { Header } from "../home/components/header";
+import { HandleLogin } from "./loginAuth/handleLogin";
 
 export const Login = () =>{
   
   const {authData,updateData} = useContext(authContext);
   console.log(authData.isWorker)
-  const testuser={
+ {/*const testuser={
     username:"test@test.com",
     password:"password"
 
-  }
+  }*/}
   const [login,setLogin] = useState({username:'',password:''});
   console.log(login.username)
 let navigate=useNavigate();
 
-function handleSubmit(){
+{/*function handleSubmit(){
   console.log(authData.isWorker);
 
   
@@ -36,6 +37,7 @@ function handleSubmit(){
 
 }
 
+*/}
 return (
   <>
   <Header />
@@ -43,7 +45,19 @@ return (
 <Flex justifyContent={'center'}>
 <Box my={8} textAlign='left'>
   <Heading>Log In to your Account</Heading>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={async(e) =>{
+        e.preventDefault()
+        if(await HandleLogin(login.username,login.password)){
+
+          updateData((prevAuth)=>{
+            return({...prevAuth,...{isLoggedIn:true}})
+          })
+            return(navigate('/mainhome'))
+        }
+            console.log("incorrect credentials")
+        }
+      }
+        >
 
       <FormControl mt={4} >
       <FormLabel>Select Your Role</FormLabel>
