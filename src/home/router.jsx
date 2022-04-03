@@ -7,6 +7,7 @@ import { Login } from '../login/loginpage';
 import { WorkerProfile } from './worker/workersprofile';
 import { MainHome } from './mainhome';
 import { Profile } from './profile';
+import { PostWork } from './employer/postwork';
 
   export const authContext =React.createContext() ;
 function Main() {
@@ -20,6 +21,7 @@ function Main() {
         <Route exact path={'/home/workerprofile'} element={<WorkerProfile/>}/>
         <Route exact path={'/mainhome'} element={<MainHome/>}/>
         <Route exact path={'/profile'} element={<Profile/>}/>
+        <Route exact path={'/home/post'} element={<PostWork/>}/>
      </Routes>
    </Router>
 

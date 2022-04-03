@@ -1,6 +1,6 @@
 import { InfoIcon, SettingsIcon } from "@chakra-ui/icons"
 import { Box, Button, Flex, Image, Stack } from "@chakra-ui/react"
-import { Header } from "../../login/header"
+import { Header } from "../components/header"
 import { useNavigate} from "react-router-dom"
 import { authContext } from "../../App"
 import {useContext} from 'react';

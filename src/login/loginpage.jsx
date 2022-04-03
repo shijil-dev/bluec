@@ -2,7 +2,7 @@ import { Box, Button, Center, Flex, FormControl, FormLabel, Heading, Input, Link
 import {useState,useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../App";
-import { Header } from "./header";
+import { Header } from "../home/components/header";
 
 export const Login = () =>{
   

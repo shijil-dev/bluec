@@ -1,10 +1,14 @@
 import { Box, Button, Flex, FormControl, FormLabel, Heading, Input, Select, } from "@chakra-ui/react";
-import { Header } from "./header";
+import { Header } from "../home/components/header";
 import { useState ,useContext} from "react";
 import { authContext } from "../App";
+import { useNavigate } from "react-router-dom";
+import { WorkerReg } from "./workerreg";
 
 
 export const Register = () =>{
+  let navigate=useNavigate();
+
   const {authData,updateData} = useContext(authContext);
   const initialUser={
     name:'',
@@ -17,10 +21,10 @@ export const Register = () =>{
   
   const [user,setUser]=useState(initialUser);
  const handleChange = (e) =>{
-  
    const {name,value} = e.target;
    setUser((prevUser) =>({...prevUser,[name]:value}))
    console.log(user.email);
+   
  }
 
 
@@ -32,12 +36,13 @@ export const Register = () =>{
         
     <Box my={8} textAlign='left'>
     <Heading>Create Your Account</Heading>
-          <form >
+          <form onSubmit={handleChange}>
           <FormControl mt={4} >
             <FormLabel>Select Your Role</FormLabel>
           <Select bg={'teal'} 
           color='white' 
           variant={'outline'} 
+          placeholder="Select Your role"
           >
           <option value="Worker" onClick={e =>updateData({...authData,...{isWorker:true}})}>
               Worker
@@ -78,12 +83,19 @@ export const Register = () =>{
             <FormControl mt={4} isRequired>
               <Input variant={'flushed'} type='password' placeholder="confirm-password" 
               onChange={handleChange}
-              value={user.confirmpassword}
               name="comfirmpassword"/>
             </FormControl>
-         
+            
+            
+        
+          <Button type='submit' 
+          colorScheme={'red'}  
+          width='full' 
+          mt={4}
+          onClick={() => {navigate('/login')}}>
+            Register
+            </Button>
           </form>
-          <Button colorScheme={'red'}  width='full' mt={4}>Register</Button>
         </Box>
         </Flex>
     </div>

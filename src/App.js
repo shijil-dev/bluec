@@ -2,7 +2,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import Main from './home/router';
-const initialAuthData={
+let initialAuthData={
   isLoggedIn:false,
   isWorker:false
 }

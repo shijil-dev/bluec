@@ -1,6 +1,6 @@
 import { EditIcon, InfoIcon, SettingsIcon } from "@chakra-ui/icons"
 import { Avatar, Box, Button, Flex, Heading, Stack } from "@chakra-ui/react"
-import { Header } from "../../login/header"
+import { Header } from "../components/header"
 import { useNavigate} from "react-router-dom"
 import { authContext } from "../../App"
 import {useContext} from 'react';
@@ -31,7 +31,7 @@ export const WorkerOwnProfile = () =>    {
                   <Stack padding='1em'>
                 <Button colorScheme={'blue'} onClick={() => {
                     navigate("/login")
-                    updateData({...authData,isLoggedIn:false})
+                    updateData({...authData,...{isLoggedIn:false,isWorker:false}})
                 }}>Logout</Button>
                 </Stack>
             </Box>

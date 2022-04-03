@@ -11,7 +11,7 @@ export const Pdrawer = () => {
     let navigate=useNavigate();
     const {authData,updateData} = useContext(authContext);
     function handleClick(){
-        updateData({...authData, ...{ isLoggedIn:false }});
+        updateData({...authData, ...{ isLoggedIn:false ,isWorker:false}});
         navigate("/login");
     }
 

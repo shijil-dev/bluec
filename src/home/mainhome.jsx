@@ -4,8 +4,10 @@ import { Bar } from "./components/navbar";
 import { Button, SimpleGrid } from "@chakra-ui/react";
 import { WorkSearch } from "./worker/workresults";
 import { SearchResults } from "./employer/searchresult";
+import { useNavigate } from 'react-router-dom';
 
 export const MainHome = () => {
+
 const {authData}=useContext(authContext);
 return(
 (authData.isWorker)? ( <WorkerHome/>):<EmployerHome/>
@@ -13,6 +15,7 @@ return(
 )
 } 
 const EmployerHome = () =>{
+  let navigate=useNavigate();
     const testprofiles = [
         {
             id:"id1",
@@ -43,6 +46,7 @@ const EmployerHome = () =>{
       width='200px'
       border='2px'
       borderColor='green.500'
+      onClick={() => {navigate('/home/post')}}
     >
     Post A Work
     </Button>
