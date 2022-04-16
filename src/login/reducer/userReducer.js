@@ -5,7 +5,7 @@ export const initialData = {
   password: "",
   confirmpassword: "",
   isworker: "",
-  skills:[""]
+  skills:[]
 };
 export const userReducer = (state, action) => {
   switch (action.type) {

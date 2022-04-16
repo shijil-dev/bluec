@@ -28,10 +28,10 @@ function Main() {
         <Route exact path={'/'} element={<Start />}/>
         <Route exact path={'/login'} element={<Login/>}/>
         <Route exact path={'/register'} element={<Register/>}/>
-        <Route exact path={'/home/workerprofile/:id'} element={
+        <Route exact path={'/home/workerprofile'} element={
                              <WorkerProfile/>}/>
         <Route exact path={'/mainhome'} element={<MainHome/>}/>
-        <Route exact path={'/profile/:id'} element={<Profile/>}/>
+        <Route exact path={'/profile'} element={<Profile/>}/>
         <Route exact path={'/home/post'} element={<PostWork/>}/>
         <Route exact path={'/workerdet'} element={<WorkerExtra/>}/>
      </Routes>

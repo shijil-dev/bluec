@@ -29,7 +29,7 @@ export const Register = () => {
               onSubmit={async (e) => {
                 e.preventDefault();
                if (await handlSignup(state)){
-                (authData.isWorker)?navigate('/workerdet'): navigate('/mainpage')
+                (authData.isWorker)?navigate('/workerdet'): navigate('/login')
                }
                 
               }}
