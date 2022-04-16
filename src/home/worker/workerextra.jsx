@@ -11,80 +11,81 @@ export const WorkerExtra = () =>{
   const [state, dispatch] = useReducer(userReducer, initialData);
   const [skills,setSkills]=useState([])
   let navigate = useNavigate();
-  let [addSkill,setAddSkill]=useState([])
-     
+  let [checkedSkills,setCheckedSkills]=useState(new Set())
+
   //   const fetchSkills = ()=>{
-  //     const response =fetch('/skills')
-  //     .then((res)=>res.json())
-  //     console.log(response)
-  // //    setSkills()
-  //   //  console.log(data)
-  //   }
-    // useEffect(() => {
+    //     const response =fetch('/skills')
+    //     .then((res)=>res.json())
+    //     console.log(response)
+    // //    setSkills()
+    //   //  console.log(data)
+    //   }
+  // useEffect(() => {
     //   fetchSkills()
     // }, [])
 
-    useEffect(() => {
-      fetch("/skills")
+  useEffect(() => {
+    fetch("/skills")
       .then(response => response.json())
       .then(data => {
         setSkills(data)})
-    },[])
-    
-    const Checkb = skills.map((skill) =>{
-      console.log(skill)
-      console.log(skill.name)
-              return(
-        
-        <SimpleGrid mt={2}>
-        <Checkbox key={skill.id} value={skill.name} padding='1px' 
-        onClick={(e)=>{
-          if(e.target.checked){
-            setAddSkill([
-              ...addSkill,{id:skill.id,name:skill.name}
-            ])
-          }
-          setAddSkill(
-            addSkill.filter((dskill)=>dskill.id !== skill.id)
-          )
-        }}
-        >
-           {skill.name}
-        </Checkbox>
-        </SimpleGrid>
-       
-        )
-        })
+  },[])
+
+  const Checkb = skills.map((skill) =>{
+    console.log(skill)
+    console.log(skill.name)
     return(
-        <>
-        <Header />
-        <div>
-          <Flex justifyContent={"center"}>
-            <Box my={8} textAlign="left">
-              <Heading>Add Worker Details</Heading>
-              <form onSubmit={async (e) => {
-                e.preventDefault();
-               if (await handlSignup(state)){
-                 navigate('/mainpage');
-               }}}
-                 
-                >
-                  <FormControl mt={4} >
-                      <FormLabel>Select your Skill</FormLabel>
-                     
-               <CheckboxGroup >
-                {Checkb}
-                </CheckboxGroup>
-              
-                </FormControl>
-               
-                <Button type="submit" colorScheme={"red"} width="full" mt={4}>
-                  Add
-                </Button>
-              </form>
-            </Box>
-          </Flex>
-        </div> 
-      </>
+
+      <SimpleGrid mt={2}>
+      <Checkbox key={skill.id} value={skill.name} padding='1px'
+      onChange={() => {
+        setCheckedSkills(checkedSkills => {
+          let temp_state = new Set(checkedSkills)
+          if (temp_state.has(skill.id)) {
+            temp_state.delete(skill.id)
+          } else {
+            temp_state.add(skill.id)
+          }
+          return temp_state
+        })
+      }}
+      >
+      {skill.name}
+      </Checkbox>
+      </SimpleGrid>
+
     )
+  })
+  return(
+    <>
+    <Header />
+    <div>
+    <Flex justifyContent={"center"}>
+    <Box my={8} textAlign="left">
+    <Heading>Add Worker Details</Heading>
+    <form onSubmit={async (e) => {
+      e.preventDefault();
+      if (await handlSignup(state)){
+        navigate('/mainpage');
+      }}}
+
+    >
+    <FormControl mt={4} >
+    <FormLabel>Select your Skill</FormLabel>
+
+    <CheckboxGroup >
+    {Checkb}
+    </CheckboxGroup>
+
+    </FormControl>
+
+    <Button type="submit" colorScheme={"red"} width="full" mt={4}>
+    Add
+    </Button>
+    </form>
+    </Box>
+    </Flex>
+    </div>
+    </>
+  )
 }
