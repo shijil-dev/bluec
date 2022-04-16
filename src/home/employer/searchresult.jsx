@@ -1,15 +1,44 @@
-import { StarIcon } from "@chakra-ui/icons";
-import { Avatar,Stack ,SimpleGrid, Badge, Heading, Box} from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-
+import { SpinnerIcon, StarIcon } from "@chakra-ui/icons";
+import { Avatar,Stack ,SimpleGrid, Badge, Heading, Box, Center, HStack, LinkBox, LinkOverlay, Link } from "@chakra-ui/react";
+import { useNavigate,useParams ,link} from "react-router-dom";
+import { WorkerProfile } from "../worker/workersprofile";
+import { useState} from 'react';
 
 export const SearchResults = (props) =>{
-    console.log(props);
+    let {id}=useParams();
     let navigate=useNavigate();
-    const Rsearch = props.testprofiles.map((testprofiles) => {
+    console.log(props);
+    const testprofiles = [
+        {
+            key:'1',
+            id:"id1",
+            name : "Ram",
+            place : "Calicut",
+            skill: ["Painting","plumbing"],
+            sts:"Active",
+            rate:'4.5'
+    
+        },
+        {
+            key:'2',
+            id:"id2",
+            name : "Kiran",
+            place : "Tanur",
+            tag: "Plumber",
+            sts:"Busy",
+            rate:"5"
+    
+        }
+    
+    ];
+    const Rsearch = testprofiles.map((testprofiles) => {
+       const handleClick = () =>{
+           console.log(testprofiles)
+       }
        return (
-       
-        <Box
+       <>
+    
+        <LinkBox
         as='button'
          border='2px' 
          borderColor='gray.200' 
@@ -17,16 +46,17 @@ export const SearchResults = (props) =>{
          padding={'.5em'}
          bgColor='blue.200'
          boxSize={'-webkit-fit-content'}
-         onClick={() => navigate("/home/workerprofile")}
+         onClick={()=>handleClick(testprofiles)}
          >
-             
+            
+             <Link></Link>
              <Stack >
                 <Stack direction='row'  alignItems='center'   justifyContent={'space-between'}>
                     <Stack direction={'row'}>
                     <Avatar/>
                  
                     <Heading key="name" color={'blue.800'} fontSize='3xl' fontWeight={'bold'}>
-                        {testprofiles.name}
+                     {testprofiles.name}
                     </Heading>
                     </Stack>
                     <Stack direction={'row'} alignItems="center" >
@@ -42,12 +72,20 @@ export const SearchResults = (props) =>{
                 </Stack>
                 </Stack>
                
-        </Box>
+        </LinkBox>
+        
+            </>
         );
     });
    return(
+       !props.isQuery?
    <SimpleGrid alignItems={'center'} columns={[1, null, 2]} spacing='10px'>
    {Rsearch}
-   </SimpleGrid>
+   </SimpleGrid>:<Center>
+       <HStack>
+           <Center>Search For Workers</Center>
+           <SpinnerIcon/>
+           </HStack>
+           </Center>
 )
 };

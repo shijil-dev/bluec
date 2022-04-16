@@ -7,7 +7,7 @@ export const Start = () =>{
     const {authData} = useContext(authContext);
     let navigate=useNavigate();
     useEffect(() => {
-        if(authData.isLoggedIn && !authData.isWorker)
+        if(authData.isLoggedIn)
         navigate("/home");
         else
         navigate("/login");

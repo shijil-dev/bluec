@@ -45,18 +45,7 @@ export const PostWork = () =>{
                     </option>
                     </Select>
               </FormControl>
-              <FormControl mt={4}>
-                <FormLabel>SelectWorkers</FormLabel>
-                <Select bg={'white'} 
-                 variant={'outline'}>
-                   <option >
-                  worker name rating distance
-                    </option>
-                  <option value="Plumbing">
-                  worker name rating distance
-                    </option>
-                    </Select>
-              </FormControl>
+           
       
       
               

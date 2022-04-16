@@ -1,24 +1,26 @@
-export const handlSignup = async(state) =>{
+export const handlSignup = async (state) => {
+  const { name, email, phone_number, password, isworker } = state;
+  const user = {
+    name,
+    email,
+    phone_number,
+    password,
+    isworker,
+  };
 
-    const {name,email,phone,confirmpassword,isworker}=state
-    const user={
-        name:name,
-        email:email,
-        phone_number:phone,
-        password:confirmpassword,
-        isworker:isworker
-    }
-
-    const isCreated = await fetch('/users',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-    if (await(isCreated.status === 201)){
-        return [true,'successfully created ']
-    }
-    return [false,'try again']
-}
+  const isCreated = await fetch("/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
+  .then((res) =>{
+    if(res.data.token)
+    localStorage.setItem("token",JSON.stringify(res.data))
+})
+  if ((isCreated.status === 201)) {
+    return [true];
+  }
+  return [false];
+};

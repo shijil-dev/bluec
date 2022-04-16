@@ -1,4 +1,3 @@
-import { StarIcon } from "@chakra-ui/icons";
 import { Avatar,Stack ,SimpleGrid, Badge, Heading, Box} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +6,28 @@ export const WorkSearch = (props) =>{
   //  const workLists=props.workLists; //send props to individual profile
     console.log(props);
     let navigate = useNavigate();
-    const Rsearch = props.workLists.map((workLists) => {
+    const workLists = [
+        {
+            id:"id1",
+            name : "Ram",
+            place : "Calicut",
+            tag: "Painting",
+            date:"2days ago",
+            rate:'4.5'
+    
+        },
+        {
+            id:"id2",
+            name : "Kiran",
+            place : "Tanur",
+            tag: "Plumber",
+            date:"today",
+            rate:"5"
+    
+        }
+    
+    ];
+    const Rsearch = workLists.map((workLists) => {
        return (
        
         <Box 

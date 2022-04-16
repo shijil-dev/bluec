@@ -1,4 +1,6 @@
+
 export const HandleLogin = async(email,password) =>{
+    
     const user={
         email:email,
         password:password
@@ -10,6 +12,12 @@ export const HandleLogin = async(email,password) =>{
         },
         body:JSON.stringify(user)
     })
-        .then((res) =>{console.log(res)})
+        .then((res) =>{
+            if(res.data.token)
+            localStorage.setItem("token",JSON.stringify(res.data))
+        })
+    if(isLoggedIn.status === 201){
+        
+    }
 
 } 

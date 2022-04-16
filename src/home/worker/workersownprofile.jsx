@@ -9,6 +9,13 @@ import {useContext} from 'react';
 export const WorkerOwnProfile = () =>    {
     const navigate=useNavigate();
     const {authData,updateData} = useContext(authContext);
+    const worker={
+        name:"Murali",
+        tag:["painting","construction"
+    ],
+    exp:4,
+    rate:5
+    }
     return(
         <>
         <Header/>
@@ -36,7 +43,7 @@ export const WorkerOwnProfile = () =>    {
                 </Stack>
             </Box>
             <Box bg={'blue.200'}>
-                <h1>worktag</h1>
+               { worker.tag.map(<h1>worker.tag</h1>)}
                 <h1>experience</h1>
                 <h1> rating reviws</h1>
                 

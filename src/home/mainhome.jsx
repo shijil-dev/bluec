@@ -1,45 +1,79 @@
 import { authContext } from '../App';
-import { useContext } from 'react';
+import React,{ useState,useContext} from 'react';
 import { Bar } from "./components/navbar";
-import { Button, SimpleGrid } from "@chakra-ui/react";
+import { Button, Center, Flex, IconButton, Input, InputGroup, InputRightElement, SimpleGrid, Spacer, Stack } from "@chakra-ui/react";
 import { WorkSearch } from "./worker/workresults";
 import { SearchResults } from "./employer/searchresult";
 import { useNavigate } from 'react-router-dom';
+import { SearchIcon } from '@chakra-ui/icons';
+import { Locate } from './components/locate';
+import { Pdrawer } from './components/drawer';
 
 export const MainHome = () => {
-
 const {authData}=useContext(authContext);
+
 return(
-(authData.isWorker)? ( <WorkerHome/>):<EmployerHome/>
+(authData.isWorker)? ( <WorkerHome/>):
+<EmployerHome/>
 
 )
 } 
 const EmployerHome = () =>{
+  const [query,setQuery]=useState({
+    isQuery:false,
+    queryText:"",
+  })
   let navigate=useNavigate();
-    const testprofiles = [
-        {
-            id:"id1",
-            name : "Ram",
-            place : "Calicut",
-            tag: "Painter",
-            sts:"Active",
-            rate:'4.5'
-    
-        },
-        {
-            id:"id2",
-            name : "Kiran",
-            place : "Tanur",
-            tag: "Plumber",
-            sts:"Busy",
-            rate:"5"
-    
-        }
-    
-    ];
       return (
-       <>
-      <Bar/>
+       <>   
+      <Flex direction='row'
+            bg='blue.700'
+            h={['6em','3em']}
+            align='center' 
+            justifyContent='space-between'
+            >
+        <Center 
+            paddingLeft='.5em'
+            color='white'
+            fontFamily='monospace'
+            fontSize='3xl' 
+            fontWeight='bold'>
+          BlueCollar
+        </Center>
+        <Stack direction={["column","row"]}>
+            <Flex>
+                <form >
+                <InputGroup paddingLeft='10'>
+                <Input
+                    variant='solid' 
+                   width={['10em','20em','30em','40em']}
+                    size='sm'
+                    placeholder="Search..." 
+                    type="search"
+                    value={query.queryText}
+                    onChange={e=>{setQuery({...query,queryText:e.target.value})
+                    console.log(query.queryText)}
+                    }
+                    />
+                    <InputRightElement paddingBottom='2'>
+                    <IconButton size='xs' icon={<SearchIcon/> } 
+                    type='submit'
+                    onClick={e=>setQuery({...query,isQuery:true})}
+                    /> 
+                    </InputRightElement>
+      
+                </InputGroup>
+                </form>
+            </Flex>
+        <Spacer/>
+         <Center paddingLeft='5em'>
+         <Locate/>
+        </Center>
+        </Stack>
+        <Spacer/>
+   
+            <Pdrawer/>
+    </Flex>
        <Button
       size='md'
       height='48px'
@@ -51,7 +85,7 @@ const EmployerHome = () =>{
     Post A Work
     </Button>
        <SimpleGrid>
-               <SearchResults testprofiles={ testprofiles } />
+               <SearchResults props={query}/>
                </SimpleGrid>
         </>
        
@@ -59,32 +93,12 @@ const EmployerHome = () =>{
     }
 
     const WorkerHome = () => {
-        const workLists = [
-          {
-              id:"id1",
-              name : "Ram",
-              place : "Calicut",
-              tag: "Painting",
-              date:"2days ago",
-              rate:'4.5'
-      
-          },
-          {
-              id:"id2",
-              name : "Kiran",
-              place : "Tanur",
-              tag: "Plumber",
-              date:"today",
-              rate:"5"
-      
-          }
-      
-      ];
+       
         return (
          <>
       <Bar/>
          <SimpleGrid>
-                 <WorkSearch workLists={ workLists } />
+                 <WorkSearch />
                  </SimpleGrid>
           </>
          

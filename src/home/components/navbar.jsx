@@ -2,9 +2,10 @@ import {  SearchIcon } from "@chakra-ui/icons";
 import { Center, Flex, IconButton, Input, InputGroup, InputRightElement,  Spacer, Stack,} from "@chakra-ui/react";
 import { Pdrawer } from "./drawer";
 import { Locate } from "./locate";
+export const Bar = () => {
 
-export const Bar = () => (
-    
+    return(
+   
     <Flex direction='row'
             bg='blue.700'
             h={['6em','3em']}
@@ -21,19 +22,24 @@ export const Bar = () => (
         </Center>
         <Stack direction={["column","row"]}>
             <Flex>
+                <form >
                 <InputGroup paddingLeft='10'>
-            
                 <Input
                     variant='solid' 
                    width={['10em','20em','30em','40em']}
                     size='sm'
                     placeholder="Search..." 
-                    type="search" />
+                    type="search"
+                    id="search"
+                    />
                     <InputRightElement paddingBottom='2'>
-                    <IconButton size='xs' icon={<SearchIcon/> }/> 
+                    <IconButton size='xs' icon={<SearchIcon/> } 
+                    type='submit'
+                    /> 
                     </InputRightElement>
       
                 </InputGroup>
+                </form>
             </Flex>
         <Spacer/>
          <Center paddingLeft='5em'>
@@ -43,6 +49,6 @@ export const Bar = () => (
         <Spacer/>
    
             <Pdrawer/>
-
     </Flex>
 ) 
+    }

@@ -4,12 +4,10 @@ import React from 'react';
 import Main from './home/router';
 let initialAuthData={
   isLoggedIn:false,
-  isWorker:false
+  isWorker:false,
 }
-
   export const authContext =React.createContext() ;
 function App() {
-  
   const [authData, updateData] = React.useState(initialAuthData) ;
   return (
     

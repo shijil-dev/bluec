@@ -3,19 +3,19 @@ import { StarIcon } from "@chakra-ui/icons"
 import { Badge, Box, Flex, HStack, Image, Img, Stack } from "@chakra-ui/react"
 import { Header } from "../components/header"
 
-export const WorkerProfile = () =>    {
-    
+export const WorkerProfile = (props) =>    {
+    console.log(props)
     return(
         <>
-        <Header/>
+       
         <Flex justifyContent={'space-around'} alignItems='center'>
         <Stack direction={'row'}>
            
             <Box bg={'red.100'} > 
             <Stack alignItems={'center'} justifyItems='space-around'>
             <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
-                <HStack><h1>Ram</h1>   <Badge>Active</Badge></HStack>
-                <h1>Painter</h1>
+                <HStack><h1>{props.name}</h1>   <Badge>Active</Badge></HStack>
+                <h1>{props.tag}</h1>
                 <h1>5 Years</h1>
                 <HStack>
                     <StarIcon color={'gold'}/>
