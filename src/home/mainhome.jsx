@@ -13,14 +13,14 @@ export const MainHome = () => {
 const {authData}=useContext(authContext);
 
 return(
-(authData.isWorker)? ( <WorkerHome/>):
+(!authData.isWorker)? ( <WorkerHome/>):
 <EmployerHome/>
 
 )
 } 
 const EmployerHome = () =>{
   const [query,setQuery]=useState({
-    isQuery:false,
+    isQuery:"",
     queryText:"",
   })
   let navigate=useNavigate();
@@ -51,14 +51,16 @@ const EmployerHome = () =>{
                     placeholder="Search..." 
                     type="search"
                     value={query.queryText}
-                    onChange={e=>{setQuery({...query,queryText:e.target.value})
-                    console.log(query.queryText)}
+                    onChange={e=>{setQuery((prevquery)=>({...prevquery,queryText:e.target.value}))
+                     }
                     }
                     />
                     <InputRightElement paddingBottom='2'>
                     <IconButton size='xs' icon={<SearchIcon/> } 
                     type='submit'
-                    onClick={e=>setQuery({...query,isQuery:true})}
+                    onClick={(e)=>{
+                      e.preventDefault();
+                      setQuery((preQuery)=>({...preQuery,isQuery:true}))}}
                     /> 
                     </InputRightElement>
       
@@ -85,7 +87,8 @@ const EmployerHome = () =>{
     Post A Work
     </Button>
        <SimpleGrid>
-               <SearchResults props={query}/>
+         {query.isQuery?
+               <SearchResults props={query}/>:<Center>Nothing Here!</Center>}
                </SimpleGrid>
         </>
        

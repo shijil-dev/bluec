@@ -1,7 +1,6 @@
 
 import { StarIcon } from "@chakra-ui/icons"
 import { Badge, Box, Flex, HStack, Image, Img, Stack } from "@chakra-ui/react"
-import { Header } from "../components/header"
 
 export const WorkerProfile = (props) =>    {
     console.log(props)

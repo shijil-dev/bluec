@@ -1,29 +1,24 @@
-import { Box, Button, Checkbox, CheckboxGroup, Flex, FormControl, FormLabel, Heading, SimpleGrid } from "@chakra-ui/react";
-import { initialData, userReducer } from "../../login/reducer/userReducer";
+import { Box,
+   Button, 
+   Checkbox,
+    CheckboxGroup,
+     Flex,
+     FormControl,
+     FormLabel,
+     Heading, 
+     Input, 
+     SimpleGrid } from "@chakra-ui/react";
 import { Header } from "../components/header";
-import { useReducer,useState,useContext,useEffect } from 'react';
-import { handlSignup } from "../../login/loginAuth/handlesignup";
+import { useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { authContext } from "../../App";
+
 import { addSkill } from "../components/hooks/addSkill";
+import useGeoLocation from "../components/hooks/useGeolocation";
 
 export const WorkerExtra = () =>{
-  const {authData,updateData} = useContext(authContext);
-  const [state, dispatch] = useReducer(userReducer, initialData);
   const [skills,setSkills]=useState([])
   let navigate = useNavigate();
   let [checkedSkills,setCheckedSkills]=useState(new Set())
-
-  //   const fetchSkills = ()=>{
-    //     const response =fetch('/skills')
-    //     .then((res)=>res.json())
-    //     console.log(response)
-    // //    setSkills()
-    //   //  console.log(data)
-    //   }
-  // useEffect(() => {
-    //   fetchSkills()
-    // }, [])
 
   useEffect(() => {
     fetch("/skills")
@@ -31,6 +26,7 @@ export const WorkerExtra = () =>{
       .then(data => {
         setSkills(data)})
   },[])
+  const location=useGeoLocation();
 
   const Checkb = skills.map((skill) =>{
     console.log(skill)
@@ -77,7 +73,8 @@ export const WorkerExtra = () =>{
     <CheckboxGroup >
     {Checkb}
     </CheckboxGroup>
-
+    <Input value=
+        {(location.loaded)?JSON.stringify(location.coordinates):"loaction is not supported refresh"}/>
     </FormControl>
 
     <Button type="submit" colorScheme={"red"} width="full" mt={4}>

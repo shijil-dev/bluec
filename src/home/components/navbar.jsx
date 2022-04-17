@@ -1,11 +1,10 @@
-import {  SearchIcon } from "@chakra-ui/icons";
-import { Center, Flex, IconButton, Input, InputGroup, InputRightElement,  Spacer, Stack,} from "@chakra-ui/react";
+
+import { Center, Flex,   Spacer,} from "@chakra-ui/react";
 import { Pdrawer } from "./drawer";
 import { Locate } from "./locate";
-import { useContext,useState } from 'react';
-import { searchContext } from "../mainhome";
 
 export const Bar = () => {
+    console.log(true)
     return(
    
     <Flex direction='row'
@@ -22,9 +21,11 @@ export const Bar = () => {
             fontWeight='bold'>
           BlueCollar
         </Center>
-        <Stack direction={["column","row"]}>
+        {/* <Stack direction={["column","row"]}>
             <Flex>
-                <form>
+                {console.log(authData.isWorker)}
+                {(!authData.isWorker)?
+                (<form>
                 <InputGroup paddingLeft='10'>
                 <Input
                     variant='solid' 
@@ -41,13 +42,13 @@ export const Bar = () => {
                     </InputRightElement>
       
                 </InputGroup>
-                </form>
+                </form>):(<></>)}
             </Flex>
-        <Spacer/>
+        <Spacer/> */}
          <Center paddingLeft='5em'>
          <Locate/>
         </Center>
-        </Stack>
+        {/* </Stack> */}
         <Spacer/>
    
             <Pdrawer/>

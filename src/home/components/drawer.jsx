@@ -1,4 +1,4 @@
-import { BellIcon, InfoIcon, SettingsIcon } from "@chakra-ui/icons";
+import { InfoIcon} from "@chakra-ui/icons";
 import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton, 
     DrawerContent, DrawerOverlay, Flex, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
 import React,{useContext} from "react";
@@ -36,12 +36,6 @@ export const Pdrawer = () => {
                   </Stack>
                   <Stack padding={'1em'}>
                       <Button columnGap={'0.5em'} onClick={() => navigate("/profile")}><InfoIcon/>Your Account</Button>
-                  </Stack>
-                  <Stack padding={'1em'}>
-                      <Button columnGap={'0.5em'}><BellIcon/>Notifications</Button>
-                  </Stack>
-                  <Stack padding={'1em'}>
-                      <Button columnGap={'0.5em'}><SettingsIcon/>Settings</Button>
                   </Stack>
                   
                   <Stack padding='1em'>

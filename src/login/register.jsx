@@ -41,7 +41,7 @@ export const Register = () => {
                     title: 'An error occurred.',
                   description: isCreated[1],
                   status: 'error',
-                  duration: 9000,
+                  duration: 1000,
                   isClosable: true,
                   }
                  )

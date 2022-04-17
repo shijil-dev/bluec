@@ -1,11 +1,11 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Button, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger } from "@chakra-ui/react";
-import { useState} from 'react';
-import { ShowLoc } from "./hooks/useGeolocation";
+import { Button, Input, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger } from "@chakra-ui/react";
+
+import useGeoLocation from "./hooks/useGeolocation";
 
 export const Locate = () =>{
-    const [click,setClick]=useState(false);
-   
+    const location=useGeoLocation();
+  
    return(
         <Popover >
         <PopoverTrigger>
@@ -17,13 +17,13 @@ export const Locate = () =>{
             <PopoverArrow/>
             <PopoverCloseButton/>
                 <PopoverHeader>
-                    <Button onClick={()=>{setClick(true)}} >Find My Location</Button>
+                    <Button>Find My Location</Button>
                 </PopoverHeader>
             <PopoverBody>
-               {click?<ShowLoc/>:"Click here to find your location"}
-              {/* <Input value=
-        {(location.loaded)?JSON.stringify(location.coordinates):"loaction is not supported"}
-        />*/}
+              
+               <Input value=
+        {(location.loaded)?JSON.stringify(location.coordinates):"loaction is not supported"}/>
+    
            </PopoverBody>
            
 

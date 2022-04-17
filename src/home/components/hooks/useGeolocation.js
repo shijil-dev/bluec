@@ -1,6 +1,5 @@
-import { Input } from '@chakra-ui/react';
 import { useState,useEffect } from 'react';
-export const ShowLoc = () => {
+const useGeoLocation = () => {
     const [location,setLocation] = useState([{
         loaded : false,
         coordinates : { lat : "",lng : ""}}]);
@@ -36,12 +35,7 @@ export const ShowLoc = () => {
             navigator.geolocation.getCurrentPosition(onSuccess,onError)
         },[location,setLocation])
         
-        return (
-            <div>
-            <Input value=
-            {(location.loaded)?JSON.stringify(location):"loaction is not supported"}
-            />
-            </div>
-        )
+        return location;
 
 }
+export default useGeoLocation;

@@ -1,5 +1,6 @@
+const id=localStorage.getItem("userId")
 export const addSkill = (skills) =>{
-    const addedSkill =  fetch("/users", {
+    const addedSkill =  fetch("/users/"+id, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -7,7 +7,7 @@ export const Profile = () =>{
     console.log(authData.isWorker)
     return(
         
-        (authData.isWorker)?(<WorkerOwnProfile/>):(<EmployersOwnProfile/>)
+        (!authData.isWorker)?(<WorkerOwnProfile/>):(<EmployersOwnProfile/>)
     )
 
 }
