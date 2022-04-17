@@ -5,6 +5,7 @@ import Main from './home/router';
 let initialAuthData={
   isLoggedIn:false,
   isWorker:false,
+  //userId:""
 }
   export const authContext =React.createContext() ;
 function App() {

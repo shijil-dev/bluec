@@ -5,6 +5,7 @@ import { useReducer,useState,useContext,useEffect } from 'react';
 import { handlSignup } from "../../login/loginAuth/handlesignup";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../App";
+import { addSkill } from "../components/hooks/addSkill";
 
 export const WorkerExtra = () =>{
   const {authData,updateData} = useContext(authContext);
@@ -65,8 +66,8 @@ export const WorkerExtra = () =>{
     <Heading>Add Worker Details</Heading>
     <form onSubmit={async (e) => {
       e.preventDefault();
-      if (await handlSignup(state)){
-        navigate('/mainpage');
+      if (await addSkill(skills)){
+        navigate('/mainhome');
       }}}
 
     >

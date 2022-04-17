@@ -2,8 +2,10 @@ import {  SearchIcon } from "@chakra-ui/icons";
 import { Center, Flex, IconButton, Input, InputGroup, InputRightElement,  Spacer, Stack,} from "@chakra-ui/react";
 import { Pdrawer } from "./drawer";
 import { Locate } from "./locate";
-export const Bar = () => {
+import { useContext,useState } from 'react';
+import { searchContext } from "../mainhome";
 
+export const Bar = () => {
     return(
    
     <Flex direction='row'
@@ -22,7 +24,7 @@ export const Bar = () => {
         </Center>
         <Stack direction={["column","row"]}>
             <Flex>
-                <form >
+                <form>
                 <InputGroup paddingLeft='10'>
                 <Input
                     variant='solid' 
@@ -51,4 +53,4 @@ export const Bar = () => {
             <Pdrawer/>
     </Flex>
 ) 
-    }
+ }

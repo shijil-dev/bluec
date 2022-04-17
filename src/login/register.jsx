@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  createStandaloneToast,
   Flex,
   FormControl,
   FormLabel,
@@ -14,10 +15,12 @@ import { authContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import { handlSignup } from "./loginAuth/handlesignup";
 import { userReducer, initialData } from "./reducer/userReducer";
+
 export const Register = () => {
   let navigate = useNavigate();
   const {authData,updateData} = useContext(authContext);
   const [state, dispatch] = useReducer(userReducer, initialData);
+  const toast = createStandaloneToast();
   return (
     <>
       <Header />
@@ -28,8 +31,20 @@ export const Register = () => {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-               if (await handlSignup(state)){
+                const isCreated=await handlSignup(state)
+               if (isCreated[0]){
                 (authData.isWorker)?navigate('/workerdet'): navigate('/login')
+               }
+               else{
+                 toast(
+                  {
+                    title: 'An error occurred.',
+                  description: isCreated[1],
+                  status: 'error',
+                  duration: 9000,
+                  isClosable: true,
+                  }
+                 )
                }
                 
               }}
@@ -40,7 +55,6 @@ export const Register = () => {
                   bg={"teal"}
                   color="white"
                   variant={"outline"}
-                  placeholder="Select Your role"
                 >
                   <option
                     value="Worker"
