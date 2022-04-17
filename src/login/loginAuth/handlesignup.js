@@ -15,11 +15,10 @@ export const handlSignup = async (state) => {
     },
     body: JSON.stringify(user),
   })
-  .then((res) =>{
-    if(res.data.token)
-    localStorage.setItem("token",JSON.stringify(res.data))
-})
-  if ((isCreated.status === 201)) {
+
+  if (await isCreated.status === 201) {
+    const temp = await isCreated.json()
+    localStorage.setItem("userId", temp.id)
     return [true];
   }
   return [false];
