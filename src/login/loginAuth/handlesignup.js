@@ -14,18 +14,18 @@ export const handlSignup = async (state) => {
     isworker,
   };
 
-   await fetch("/users", {
+  const isCreated= await fetch("/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
   })
-  .then((res)=>res.json())
-   .then((data)=>{
-    localStorage.setItem("userid",data.id)})
-  if (true) {
-    return [true,"Success"];
+
+  if (await isCreated.status === 201) {
+    const temp = await isCreated.json()
+    localStorage.setItem("userId", temp.id)
+    return [true,"success"];
   }
   return [false,"failed"];
 };
