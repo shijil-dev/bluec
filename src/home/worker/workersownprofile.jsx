@@ -1,5 +1,5 @@
-import { EditIcon, InfoIcon, SettingsIcon } from "@chakra-ui/icons"
-import { Avatar, Box, Button, Center, Flex, Heading, HStack, Stack } from "@chakra-ui/react"
+import { EditIcon} from "@chakra-ui/icons"
+import { Avatar, Box, Button, Center, Flex, Heading, Stack } from "@chakra-ui/react"
 import { Header } from "../components/header"
 import { useNavigate} from "react-router-dom"
 import { authContext } from "../../App"
@@ -45,6 +45,7 @@ export const WorkerOwnProfile = () =>    {
     bgColor='blue.200'
     boxSize={'-webkit-fit-content'}
     onClick={() => navigate("/home/workerprofile")}
+  
     >
         
         <Stack >
@@ -79,9 +80,9 @@ export const WorkerOwnProfile = () =>    {
     return(
         <>
         <Header/>
-        <Flex justifyContent={'space-around'} alignItems='center'>
+        <Flex justifyContent={'space-around'}>
         <Stack direction={'row'}>
-            <Box bg={'red.100'}>
+            <Box bg={'red.100'} width='20em' height={'8xl'} borderRadius='md'>
                 <Stack direction={'row'} padding='1em'>
             <Avatar/>
                 <Center fontWeight={'bold'} fontSize={'2xl'}>{worker.name}</Center> 
@@ -96,7 +97,7 @@ export const WorkerOwnProfile = () =>    {
                 }}>Logout</Button>
                 </Stack>
             </Box>
-            <Box bg={'blue.200'}>
+            <Box bg={'blue.200'} width='30em' height='8xl'>
                 {Requests}
                 
             </Box>

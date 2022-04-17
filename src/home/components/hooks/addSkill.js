@@ -9,7 +9,7 @@ export const addSkill = (skills) =>{
             skill_ids: skills.map(skill => skill.id)
         }),
       })
-      if ((addedSkill.status === 201)) {
+      if (addedSkill.status === 201) {
         return [true];
       }
       else

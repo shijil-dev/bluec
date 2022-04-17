@@ -30,6 +30,8 @@ function Main() {
         <Route exact path={'/register'} element={<Register/>}/>
         <Route exact path={'/home/workerprofile'} element={
                              <WorkerProfile/>}/>
+        <Route exact path={'/home/employerprofile'} element={
+                             <WorkerProfile/>}/>
         <Route exact path={'/mainhome'} element={<MainHome/>}/>
         <Route exact path={'/profile'} element={<Profile/>}/>
         <Route exact path={'/home/post'} element={<PostWork/>}/>
