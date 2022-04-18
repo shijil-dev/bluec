@@ -1,6 +1,6 @@
 
 import { StarIcon } from "@chakra-ui/icons"
-import { Avatar, Box, Center, Flex, HStack, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Stack, Textarea, VStack } from "@chakra-ui/react"
+import { Avatar, Box, Button, Center, Flex, HStack, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Stack, Textarea, VStack } from "@chakra-ui/react"
 import {useState} from 'react';
 import { useParams } from "react-router-dom";
 import { Header } from "../components/header";
@@ -23,7 +23,7 @@ export const WorkerProfile = () => {
         <Flex justifyContent={'space-around'} alignItems='center'>
         <Stack direction={'row'}>
            
-            <Box bg={'red.100'} height={'8xl'} width='20em' > 
+            <Box bg={'red.100'} height={'8xl'} width='20em' padding={'1em'} borderRadius='md'> 
             <Stack alignItems={'center'} justifyItems='space-around'>
             
                 <HStack><Avatar/> <Center fontWeight={'bold'} fontSize='2xl'>{worker.name}</Center> </HStack>
@@ -42,18 +42,31 @@ export const WorkerProfile = () => {
                 <Stack mt='4'>
                     <Center>{worker.phone}</Center>
                     <Center>{worker.sts}</Center>
+                    <Button colorScheme={'blackAlpha'}>Send Request</Button>
                 </Stack>
             </Box>
    
-            <Box bg={'blue.200'} justifyContent='space-around' height={'8xl'} width='30em'>
+            <Box 
+            borderRadius='md'
+            bg={'blue.200'} 
+            justifyContent='space-around' 
+            height={'8xl'} width='30em' 
+            padding={'1em'}>
                 <Stack direction={'column'}>
                     <form>
                         <Stack>
                         <label>Review</label>
                        
                         <Textarea bgColor={'white'}/>
+                        <Button colorScheme={'blackAlpha'} >Post</Button>
                         </Stack>
                     </form>
+                    <Box>
+                        Reviews
+                        <li>review1, rating1</li>
+                        <li>review1, rating1</li>
+                        <li>review1, rating1</li>
+                    </Box>
                 </Stack>
                 
             </Box>
