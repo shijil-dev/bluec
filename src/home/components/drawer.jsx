@@ -35,7 +35,7 @@ export const Pdrawer = () => {
                   <h1>john doe</h1>
                   </Stack>
                   <Stack padding={'1em'}>
-                      <Button columnGap={'0.5em'} onClick={() => navigate("/profile")}><InfoIcon/>Your Account</Button>
+                      <Button columnGap={'0.5em'} onClick={() => navigate("/profile/")}><InfoIcon/>Your Account</Button>
                   </Stack>
                   
                   <Stack padding='1em'>

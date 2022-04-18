@@ -1,12 +1,13 @@
 import { SettingsIcon, StarIcon } from "@chakra-ui/icons"
 import { Avatar, Badge, Box, Button, Center, Flex, Heading, HStack, LinkBox, SimpleGrid, Stack} from "@chakra-ui/react"
 import { Header } from "../components/header"
-import { useNavigate} from "react-router-dom"
+import { useNavigate, useParams} from "react-router-dom"
 import { authContext } from "../../App"
 import {useContext} from 'react';
 
 
-export const EmployersOwnProfile = () =>    {
+export const EmployersOwnProfile = (props) =>    {
+   console.log(props)
     const navigate=useNavigate();
     const {authData,updateData} = useContext(authContext);
     const emp={

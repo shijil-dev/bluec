@@ -13,7 +13,7 @@ export const MainHome = () => {
 const {authData}=useContext(authContext);
 
 return(
-(!authData.isWorker)? ( <WorkerHome/>):
+(authData.isWorker)? ( <WorkerHome/>):
 <EmployerHome/>
 
 )

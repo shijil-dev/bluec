@@ -28,12 +28,12 @@ function Main() {
         <Route exact path={'/'} element={<Start />}/>
         <Route exact path={'/login'} element={<Login/>}/>
         <Route exact path={'/register'} element={<Register/>}/>
-        <Route exact path={'/home/workerprofile'} element={
+        <Route exact path={'/home/workerprofile/:uid'} element={
                              <WorkerProfile/>}/>
-        <Route exact path={'/home/employerprofile'} element={
-                             <WorkerProfile/>}/>
+        {/* <Route exact path={'/home/employerprofile'} element={
+                             <WorkContract/>}/> */}
         <Route exact path={'/mainhome'} element={<MainHome/>}/>
-        <Route exact path={'/profile'} element={<Profile/>}/>
+        <Route exact path={'/profile/:uid'} element={<Profile/>}/>
         <Route exact path={'/home/post'} element={<PostWork/>}/>
         <Route exact path={'/workerdet'} element={<WorkerExtra/>}/>
      </Routes>

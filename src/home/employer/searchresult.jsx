@@ -1,5 +1,6 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Avatar,Stack ,SimpleGrid, Badge, Heading, LinkBox, Link } from "@chakra-ui/react";
+import { Avatar,Stack ,SimpleGrid, Badge, Heading, Link, Box } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const testprofiles = [
     {
@@ -25,6 +26,7 @@ const testprofiles = [
 
 ];
 export const SearchResults = (props) =>{
+    const navigate=useNavigate();
     
     //    const getWorkers = fetch("/users", {
     //         method: "POST",
@@ -35,11 +37,11 @@ export const SearchResults = (props) =>{
     //       }) this api for the workers search
   
       
-          const Rsearch = testprofiles.map((testprofiles) => {
+          const Rsearch = testprofiles.map((testprofile) => {
             return (
             <>
          
-             <LinkBox
+             <Box
              as='button'
               border='2px' 
               borderColor='gray.200' 
@@ -47,6 +49,7 @@ export const SearchResults = (props) =>{
               padding={'.5em'}
               bgColor='blue.200'
               boxSize={'-webkit-fit-content'}
+              onClick={()=>navigate('/home/workerprofile/'+testprofile.id)}
               >
                  
                   <Link></Link>
@@ -56,12 +59,12 @@ export const SearchResults = (props) =>{
                          <Avatar/>
                       
                          <Heading key="name" color={'blue.800'} fontSize='3xl' fontWeight={'bold'}>
-                          {testprofiles.name}
+                          {testprofile.name}
                          </Heading>
                          </Stack>
                          <Stack direction={'row'} alignItems="center" >
-                         <h1>{testprofiles.tag.map}</h1>
-                          <h1>{testprofiles.place}</h1>
+                         <h1>{testprofile.tag}</h1>
+                          <h1>{testprofile.place}</h1>
                      
                          </Stack>
                      </Stack>
@@ -72,7 +75,7 @@ export const SearchResults = (props) =>{
                      </Stack>
                      </Stack>
                     
-             </LinkBox>
+             </Box>
              
                  </>
              );

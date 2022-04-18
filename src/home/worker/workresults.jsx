@@ -1,7 +1,5 @@
 import { Avatar,Stack ,SimpleGrid, Badge, Heading, Box} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-
-
 export const WorkSearch = (props) =>{
   //  const workLists=props.workLists; //send props to individual profile
     console.log(props);
@@ -27,7 +25,7 @@ export const WorkSearch = (props) =>{
         }
     
     ];
-    const Rsearch = workLists.map((workLists) => {
+    const Rsearch = workLists.map((workList) => {
        return (
        
         <Box 
@@ -37,7 +35,7 @@ export const WorkSearch = (props) =>{
          padding={'.5em'}
          bgColor='blue.200'
          boxSize={'-webkit-fit-content'}
-         onClick={() => navigate("/home/workerprofile")}
+         onClick={() => navigate("/home/workerprofile/"+workList.id)}
          >
              
              <Stack >
@@ -46,12 +44,12 @@ export const WorkSearch = (props) =>{
                     <Avatar/>
                  
                     <Heading key="name" color={'blue.800'} fontSize='3xl' fontWeight={'bold'}>
-                        {workLists.name}
+                        {workList.name}
                     </Heading>
                     </Stack>
                     <Stack direction={'row'} alignItems="center" >
-                    <h1>{workLists.tag}</h1>
-                     <h1>{workLists.place}</h1>
+                    <h1>{workList.tag}</h1>
+                     <h1>{workList.place}</h1>
                      </Stack>
                 
                     </Stack>
@@ -59,7 +57,7 @@ export const WorkSearch = (props) =>{
                 <Stack direction={"row"} alignItems='center' 
                 padding={'.5em'}
                 justifyContent={'space-between'} >
-                <Badge key="status">{workLists.date}</Badge>
+                <Badge key="status">{workList.date}</Badge>
                 <Stack direction='row' spacing='10px'>
                 </Stack>
                 </Stack>

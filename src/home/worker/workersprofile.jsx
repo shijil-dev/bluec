@@ -1,8 +1,13 @@
 
 import { StarIcon } from "@chakra-ui/icons"
 import { Avatar, Box, Center, Flex, HStack, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Stack, Textarea, VStack } from "@chakra-ui/react"
-import {useState} from 'react'
+import {useState} from 'react';
+import { useParams } from "react-router-dom";
+import { Header } from "../components/header";
+
 export const WorkerProfile = () => {
+    const {uid}=useParams();
+    console.log(uid)
     const worker = {
         name:"name",
         phone:"9887654543",
@@ -14,7 +19,7 @@ export const WorkerProfile = () => {
     const [sliderValue, setSliderValue] = useState(5)
     return(
         <>
-       
+       <Header></Header>
         <Flex justifyContent={'space-around'} alignItems='center'>
         <Stack direction={'row'}>
            
