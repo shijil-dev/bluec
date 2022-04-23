@@ -7,11 +7,13 @@ import {useContext} from 'react';
 
 
 export const EmployersOwnProfile = (props) =>    {
+    const {id}=useParams();
    console.log(props)
+   console.log({id})
     const navigate=useNavigate();
     const {authData,updateData} = useContext(authContext);
     const emp={
-        name:"karnan",
+        name:"John Cena",
         phone:"9876543210"
     }
     const testprofiles = [
@@ -20,7 +22,7 @@ export const EmployersOwnProfile = (props) =>    {
             id:"id1",
             name : "Ram",
             place : "Calicut",
-            skill: ["Painting","plumbing"],
+            tag: ["Painting","plumbing"],
             sts:"Active",
             rate:'4.5'
     
@@ -30,7 +32,7 @@ export const EmployersOwnProfile = (props) =>    {
             id:"id2",
             name : "Kiran",
             place : "Tanur",
-            tag: "Plumber",
+            tag: ["Plumbing"],
             sts:"Busy",
             rate:"5"
     
@@ -52,8 +54,8 @@ export const EmployersOwnProfile = (props) =>    {
           boxSize={'-webkit-fit-content'}
           >
              
-    
-              <Stack >
+             <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
+              <Stack width={'xl'}>
                  <Stack direction='row'  alignItems='center'   justifyContent={'space-between'}>
                      <Stack direction={'row'}>
                      <Avatar/>
@@ -63,7 +65,7 @@ export const EmployersOwnProfile = (props) =>    {
                      </Heading>
                      </Stack>
                      <Stack direction={'row'} alignItems="center" >
-                     <h1>{testprofiles.tag}</h1>
+                     <h1>{testprofiles.tag.map(tag=><Badge marginLeft={'0.5'}>{tag}</Badge>)}</h1>
                       <h1>{testprofiles.place}</h1>
                  
                      </Stack>
@@ -74,7 +76,8 @@ export const EmployersOwnProfile = (props) =>    {
                  <StarIcon /></Stack>
                  </Stack>
                  </Stack>
-                
+                <Button>Accept</Button>
+                </Stack>
          </LinkBox>
          </>
         )
@@ -86,11 +89,11 @@ return(
         <Flex justifyContent={'space-around'}>
         <Stack direction={'row'}>
             <Box bg={'red.100'} height='8xl' width={'20em'}>
-            <Center mt='4'><HStack>
+           <HStack mt='4' justifyContent={'space-around'} alignItems={'center'} padding='1em'>
                 <Avatar size={'md'}/>
                 <Center fontWeight={'bold'} fontSize={'2xl'}>{emp.name}</Center>
                 </HStack>
-                <Center>{emp.phone}</Center></Center>
+                <Center>{emp.phone}</Center>
                 <Stack padding={'1em'}  mt='4'>
                       <Button  columnGap={'0.5em'}><SettingsIcon/>Edit Profile</Button>
                   </Stack>
@@ -102,11 +105,15 @@ return(
                 }}>Logout</Button>
                 </Stack>
             </Box>
-            <Box bg={'green.200'} height='100%' width={'50em'}>
-            
-                <SimpleGrid>
+            <Box bg={'green.200'} height='100%' width={'50em'} alignItems={'center'}>
+            <Center fontWeight={'bold'} fontSize='md'>Contract Requests</Center>
+            <Center mt={'2'} margin={'2'}>
+                <Button colorScheme={'cyan'}>Recall Contract</Button>
+                </Center>
+                <SimpleGrid m={'3'}>
                     {WorkerReq}
                 </SimpleGrid>
+                
             </Box>
         </Stack>
         </Flex>

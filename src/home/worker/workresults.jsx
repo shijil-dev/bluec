@@ -11,16 +11,17 @@ export const WorkSearch = (props) =>{
             place : "Calicut",
             tag: "Painting",
             date:"2days ago",
-            rate:'4.5'
-    
+            rate:'4.5',
+            dist:2
         },
         {
             id:"id2",
             name : "Kiran",
             place : "Tanur",
-            tag: "Plumber",
+            tag: "Plumbing",
             date:"today",
-            rate:"5"
+            rate:"5",
+            dist:4
     
         }
     
@@ -57,9 +58,11 @@ export const WorkSearch = (props) =>{
                 <Stack direction={"row"} alignItems='center' 
                 padding={'.5em'}
                 justifyContent={'space-between'} >
+                
+                
                 <Badge key="status">{workList.date}</Badge>
-                <Stack direction='row' spacing='10px'>
-                </Stack>
+                <h1>{workList.dist} kms</h1>
+               
                 </Stack>
                
         </Box>

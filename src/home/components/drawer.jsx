@@ -15,7 +15,7 @@ export const Pdrawer = () => {
         navigate("/login");
     }
 
-
+const id="tempid";//this id shouldbe current users id
 
    return (
     <Flex paddingLeft='2em' paddingRight='2em'>
@@ -32,10 +32,10 @@ export const Pdrawer = () => {
               <Flex direction='column'>
               <Stack direction='row' alignItems='center'>
                   <Avatar />
-                  <h1>john doe</h1>
+                  <h1>john cena</h1>
                   </Stack>
                   <Stack padding={'1em'}>
-                      <Button columnGap={'0.5em'} onClick={() => navigate("/profile/")}><InfoIcon/>Your Account</Button>
+                      <Button columnGap={'0.5em'} onClick={() => navigate("/profile/"+id)}><InfoIcon/>Your Account</Button>
                   </Stack>
                   
                   <Stack padding='1em'>

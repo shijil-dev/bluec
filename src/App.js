@@ -7,6 +7,7 @@ let initialAuthData={
   isWorker:false,
   //userId:""
 }
+// "proxy":"http://192.168.1.4:3000",
   export const authContext =React.createContext() ;
 function App() {
   const [authData, updateData] = React.useState(initialAuthData) ;

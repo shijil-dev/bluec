@@ -7,18 +7,18 @@ const testprofiles = [
         key:'1',
         id:"id1",
         name : "Ram",
-        place : "Calicut",
+        dist:3,
         tag: ["Painting","plumbing"],
         sts:"Active",
-        rate:'4.5'
+        rate:"4.5"
 
     },
     {
         key:'2',
         id:"id2",
         name : "Kiran",
-        place : "Tanur",
-        tag: "Plumber",
+        dist:2,
+        tag: ["Plumbing"],
         sts:"Busy",
         rate:"5"
 
@@ -63,14 +63,13 @@ export const SearchResults = (props) =>{
                          </Heading>
                          </Stack>
                          <Stack direction={'row'} alignItems="center" >
-                         <h1>{testprofile.tag}</h1>
-                          <h1>{testprofile.place}</h1>
-                     
+                         <div>{testprofile.tag.map(tag=><Badge marginLeft={'0.5'}>{tag}</Badge>)}</div>
+                         <h1>{testprofile.dist} kms</h1>
                          </Stack>
                      </Stack>
                      <Stack direction={"row"} alignItems='center'  justifyContent={'space-between'} >
-                     <Badge key="status">{testprofiles.sts}</Badge>
-                     <Stack direction='row' spacing='10px'> <h1 key="rating">{testprofiles.rate}</h1>
+                     <Badge>{testprofile.sts}</Badge>
+                     <Stack direction='row' spacing='10px'> <h1 key="rating">{testprofile.rate}</h1>
                      <StarIcon /></Stack>
                      </Stack>
                      </Stack>

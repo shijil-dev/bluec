@@ -1,5 +1,5 @@
-import { EditIcon} from "@chakra-ui/icons"
-import { Avatar, Box, Button, Center, Flex, Heading, Stack } from "@chakra-ui/react"
+import { EditIcon, StarIcon} from "@chakra-ui/icons"
+import { Avatar, Box, Button, Center, Flex, Heading, HStack, Stack, VStack } from "@chakra-ui/react"
 import { Header } from "../components/header"
 import { useNavigate} from "react-router-dom"
 import { authContext } from "../../App"
@@ -14,7 +14,8 @@ export const WorkerOwnProfile = () =>    {
         tag:["painting","construction"
     ],
     exp:4,
-    rate:5
+    rate:5,
+    phone:"9876756452"
     }
     const req=[
         {
@@ -45,36 +46,30 @@ export const WorkerOwnProfile = () =>    {
     bgColor='blue.200'
     boxSize={'-webkit-fit-content'}
     onClick={() => navigate("/home/workerprofile")}
-  
+    d
     >
-        
-        <Stack >
-           <Stack direction='row'  alignItems='center'   justifyContent={'space-between'}>
-               <Stack direction={'row'}>
+        <Stack direction={'row'} justifyContent='space-between'>
+            <VStack justifyContent={'space-between'} >
+           <Stack direction='row'  alignItems='center' justifyContent={'space-between'}>
                <Avatar/>
-               
-        
                <Heading key="name" color={'blue.800'} fontSize='3xl' fontWeight={'bold'}>
                    {reqs.name}
                </Heading>
-              
-               </Stack>
-               <Stack direction={'row'} alignItems="center" >
              
                 <h1>{reqs.distance} kms</h1>
                 </Stack>
-           
-               </Stack>
-           </Stack>
+
            <Stack direction={"row"} alignItems='center' 
            padding={'.5em'}
            justifyContent={'space-between'} >
              <h1>{reqs.date} days</h1>
              <h1>{reqs.phone}</h1>
-           <Stack direction='row' spacing='10px'>
            </Stack>
+           </VStack>
+           <Center>
+           <Button>Accept</Button>
+           </Center>
            </Stack>
-          
    </Box>
         )})
     return(
@@ -83,9 +78,19 @@ export const WorkerOwnProfile = () =>    {
         <Flex justifyContent={'space-around'}>
         <Stack direction={'row'}>
             <Box bg={'red.100'} width='20em' height={'8xl'} borderRadius='md'>
-                <Stack direction={'row'} padding='1em'>
+                <Stack direction={'column'} padding='1em' alignItems={'center'} >
+                    <HStack m='2' >
             <Avatar/>
-                <Center fontWeight={'bold'} fontSize={'2xl'}>{worker.name}</Center> 
+            <Center fontWeight={'bold'} fontSize={'2xl'} >{worker.name}</Center>
+            </HStack>
+                <Stack alignItems={'center'} >
+                    
+                    <HStack>
+                    <h1>{worker.rate}</h1>
+                    <StarIcon/>
+                    </HStack>
+                    <h1>{worker.phone}</h1>
+                </Stack> 
                 </Stack>
                 <Stack padding={'1em'}>
                       <Button columnGap={'0.5em'}><EditIcon/>Edit Profile</Button>
@@ -97,8 +102,11 @@ export const WorkerOwnProfile = () =>    {
                 }}>Logout</Button>
                 </Stack>
             </Box>
-            <Box bg={'blue.200'} width='30em' height='8xl'>
+            <Box bg={'green.200'} height='100%' width={'50em'} alignItems={'center'}>
+            <Center fontWeight={'bold'} fontSize='md'>Contract Requests</Center>
+                <Stack m="2">
                 {Requests}
+                </Stack>
                 
             </Box>
         </Stack>

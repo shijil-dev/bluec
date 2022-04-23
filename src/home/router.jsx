@@ -33,7 +33,7 @@ function Main() {
         {/* <Route exact path={'/home/employerprofile'} element={
                              <WorkContract/>}/> */}
         <Route exact path={'/mainhome'} element={<MainHome/>}/>
-        <Route exact path={'/profile/:uid'} element={<Profile/>}/>
+        <Route exact path={'/profile/:id'} element={<Profile/>}/>
         <Route exact path={'/home/post'} element={<PostWork/>}/>
         <Route exact path={'/workerdet'} element={<WorkerExtra/>}/>
      </Routes>
