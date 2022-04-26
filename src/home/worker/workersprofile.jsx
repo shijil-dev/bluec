@@ -51,7 +51,14 @@ export const WorkerProfile = () => {
                 <Stack mt='4'>
                     <Center>{worker.phone}</Center>
                     <Center color={'teal.600'}>{worker.sts}</Center>
-                    <Button colorScheme={'blackAlpha'}>Send Request</Button>
+                    <form>
+                        <Stack>
+                        <label>Description</label>
+                        <Textarea bgColor={'white'}/>
+                        </Stack>
+                    
+                    <Button colorScheme={'blackAlpha'} mt='4'>Send Request</Button>
+                    </form>
                 </Stack>
             </Box>
    
@@ -71,15 +78,16 @@ export const WorkerProfile = () => {
                         </Stack>
                     </form>
                     <Box>
-                        <SimpleGrid>
+                        
                             {reviews.map(review=>
-                        <Stack>
-                            {review.name}
-                            {review.rate}
-                            
+                        <Stack border={'2px'} borderColor='whiteAlpha.500' padding={'1'} borderRadius='md'>
+                            <HStack>
+                            <Avatar size={'xs'}/><h1>{review.name}</h1></HStack>
+                            <h1> {review.rate} <StarIcon color={'gold'}/></h1>
+                            <h1>{review.note}</h1>
                         </Stack>
                                 )}
-                        </SimpleGrid>
+                       
                     </Box>
                 </Stack>
                 

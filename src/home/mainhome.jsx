@@ -1,13 +1,13 @@
 import { authContext } from '../App';
 import React,{ useState,useContext} from 'react';
 import { Bar } from "./components/navbar";
-import { Button, Center, Flex, IconButton, Input, InputGroup, InputRightElement, SimpleGrid, Spacer, Stack } from "@chakra-ui/react";
+import { Avatar, Button, Center, Flex, IconButton, Input, InputGroup, InputRightElement, SimpleGrid, Spacer, Stack } from "@chakra-ui/react";
 import { WorkSearch } from "./worker/workresults";
 import { SearchResults } from "./employer/searchresult";
 import { useNavigate } from 'react-router-dom';
 import { SearchIcon } from '@chakra-ui/icons';
 import { Locate } from './components/locate';
-import { Pdrawer } from './components/drawer';
+
 
 export const MainHome = () => {
 const {authData}=useContext(authContext);
@@ -24,6 +24,7 @@ const EmployerHome = () =>{
     queryText:"",
   })
   let navigate=useNavigate();
+  const id="tempid";//this id shouldbe current users id
       return (
        <>   
       <Flex direction='row'
@@ -31,6 +32,7 @@ const EmployerHome = () =>{
             h={['6em','3em']}
             align='center' 
             justifyContent='space-between'
+            padding={'1'}
             >
         <Center 
             paddingLeft='.5em'
@@ -73,8 +75,9 @@ const EmployerHome = () =>{
         </Center>
         </Stack>
         <Spacer/>
-   
-            <Pdrawer/>
+        <IconButton borderRadius='full' bg='transparent'  
+       onClick={() => navigate("/profile/"+id)}
+    icon={<Avatar bg='gray.400' size='sm'/>} />
     </Flex>
        <Button
       size='md'

@@ -16,8 +16,11 @@ export const HandleLogin = async(email,password) =>{
             if(res.data.token)
             localStorage.setItem("token",JSON.stringify(res.data))
         })
-    if(isLoggedIn.status === 201){
-        
+    if(await isLoggedIn.status === 201){
+        const user = isLoggedIn.json()
+        localStorage.setItem("userId", user.id)
+        return [true,"success"];
     }
+    return [false,"failed"];
 
 } 

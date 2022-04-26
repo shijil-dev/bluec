@@ -1,9 +1,12 @@
 
-import { Center, Flex,   Spacer,} from "@chakra-ui/react";
-import { Pdrawer } from "./drawer";
+import { Avatar, Center, Flex,   IconButton,   Spacer,} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { Locate } from "./locate";
 
+
 export const Bar = () => {
+    const navigate=useNavigate();
+    const id="tempid";//this id shouldbe current users id
     console.log(true)
     return(
    
@@ -51,7 +54,9 @@ export const Bar = () => {
         {/* </Stack> */}
         <Spacer/>
    
-            <Pdrawer/>
+        <IconButton borderRadius='full' bg='transparent'  
+       onClick={() => navigate("/profile/"+id)}
+    icon={<Avatar bg='gray.400' size='sm'/>} />
     </Flex>
 ) 
  }

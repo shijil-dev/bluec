@@ -48,7 +48,6 @@ return (
       <form onSubmit={async(e) =>{
         e.preventDefault()
         if(await HandleLogin(login.username,login.password)){
-
           updateData((prevAuth)=>{
             return({...prevAuth,...{isLoggedIn:true}})
           })
